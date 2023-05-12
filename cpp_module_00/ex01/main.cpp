@@ -6,7 +6,7 @@
 /*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 21:33:45 by parrot            #+#    #+#             */
-/*   Updated: 2023/05/12 23:14:54 by parrot           ###   ########.fr       */
+/*   Updated: 2023/05/12 23:22:11 by parrot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main()
 		else if (cmd == "EXIT")
 			break ;
 		else
-			std::cout << RED << BAD_USG << NONE;
+			std::cout << RED << BAD_USG1 << NONE;
 	}
 	return (0);
 }
