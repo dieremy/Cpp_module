@@ -6,7 +6,7 @@
 #    By: parrot <parrot@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/08 22:07:27 by parrot            #+#    #+#              #
-#    Updated: 2023/05/11 23:36:40 by parrot           ###   ########.fr        #
+#    Updated: 2023/05/12 22:19:13 by parrot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME = phonebook
 
 
 # FILES
-SRCS = PhoneBook.cpp
+SRCS = main.cpp PhoneBook.cpp
 OBJS = ${SRCS:.cpp=.o}
 
 
