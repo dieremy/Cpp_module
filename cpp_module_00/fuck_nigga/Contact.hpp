@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 16:50:33 by robegarc          #+#    #+#             */
-/*   Updated: 2023/05/18 16:55:31 by robegarc         ###   ########.fr       */
+/*   Updated: 2023/05/18 23:23:01 by parrot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define CONTACT_HPP
 
 # include <iostream>
-# include <cstdlib>
-# include <string>
+# include <iomanip>
+# include <cstring>
 
 # define NONE		"\033[0m"
 # define RED		"\033[0;31m"
@@ -40,8 +40,6 @@ class Contact
 		std::string	_secret;
 
 	public:
-		void	add_cont(void);
-		void	search_cont(void);
 		
 		std::string get_firstName(void);
 		void set_firstName(std::string str);
@@ -57,6 +55,11 @@ class Contact
 		
 		std::string get_secret(void);
 		void set_secret(std::string str);
+		
+		void	add_cont(void);
+		void	show_info(int i);
+		void	search_cont(void);
+		int		truncInfo(std::string str);
 
 		Contact();
 		~Contact();

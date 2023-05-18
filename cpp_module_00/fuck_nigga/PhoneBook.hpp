@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 23:10:32 by parrot            #+#    #+#             */
-/*   Updated: 2023/05/18 16:54:59 by robegarc         ###   ########.fr       */
+/*   Updated: 2023/05/18 23:27:22 by parrot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,14 @@ class PhoneBook
 	private:
 		Contact cont[8];
 		int		index;
+		
 	public:
 		void	addContact(void);
+		// void	getInfo(std::string msg, std::string contactStr);
+		
 		int		searchContact(void);
+		int		show_data(void);
 		int		truncInfo(std::string str);
-		Contact	getContact(void);
-		void	setContact(int i);
-		void	getInfo(std::string msg, std::string contactStr);
 		
 		PhoneBook(void);
 		~PhoneBook(void);

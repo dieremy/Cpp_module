@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 21:33:45 by parrot            #+#    #+#             */
-/*   Updated: 2023/05/18 16:55:12 by robegarc         ###   ########.fr       */
+/*   Updated: 2023/05/18 23:23:31 by parrot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 int main()
 {
-	PhoneBook	pippofranco;
+	PhoneBook 	pippofranco;
 	std::string	cmd;
-	Contact 	ct;
 	
 	pippofranco = PhoneBook();
 	while (1)
@@ -24,13 +23,9 @@ int main()
 		std::cout << YELLOW << ENTER_CMD << NONE;
 		std::cin >> cmd;
 		if (cmd == "ADD")
-		{
 			pippofranco.addContact();
-		}
 		else if (cmd == "SEARCH")
-		{
 			pippofranco.searchContact();
-		}
 		else if (cmd == "EXIT")
 			break ;
 		else
