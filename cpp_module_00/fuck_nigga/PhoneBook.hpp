@@ -46,8 +46,6 @@ class PhoneBook
 		
 	public:
 		void	addContact(void);
-		// void	getInfo(std::string msg, std::string contactStr);
-		
 		int		searchContact(void);
 		int		show_data(void);
 		int		truncInfo(std::string str);
