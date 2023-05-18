@@ -6,7 +6,7 @@
 /*   By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 21:33:45 by parrot            #+#    #+#             */
-/*   Updated: 2023/05/14 19:17:47 by robegarc         ###   ########.fr       */
+/*   Updated: 2023/05/18 16:55:12 by robegarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,19 @@ int main()
 	PhoneBook	pippofranco;
 	std::string	cmd;
 	Contact 	ct;
-	int 		i;
 	
-	i = -1;
+	pippofranco = PhoneBook();
 	while (1)
 	{	
 		std::cout << YELLOW << ENTER_CMD << NONE;
 		std::cin >> cmd;
 		if (cmd == "ADD")
 		{
-			if (i == 7)
-				i = -1;
-			ct = pippofranco.addContact(pippofranco, ++i);
+			pippofranco.addContact();
 		}
 		else if (cmd == "SEARCH")
 		{
-			pippofranco.searchContact(pippofranco, &ct, i);
+			pippofranco.searchContact();
 		}
 		else if (cmd == "EXIT")
 			break ;

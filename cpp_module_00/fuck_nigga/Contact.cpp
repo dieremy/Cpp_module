@@ -6,7 +6,7 @@
 /*   By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 16:50:37 by robegarc          #+#    #+#             */
-/*   Updated: 2023/05/14 19:11:30 by robegarc         ###   ########.fr       */
+/*   Updated: 2023/05/18 16:41:04 by robegarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,42 @@
 
 Contact::Contact(void)
 {
-	std::string _firstName = "";
-	std::string _lastName = "";
-	std::string _nickName = "";
-	std::string _phone = "";
-	std::string _secret = "";
+	return ;
+}
+
+void	Contact::add_cont(void)
+{
+	// std::cout << "Enter contact first name: ";
+	// std::cin >> this->_firstName;
+
+	std::cout << GREEN << "Enter " << BOLDGREEN << "first name : " << NONE ;
+	std::cin >> this->_firstName;
+	std::cout << "The first name entered is : " << BOLDGREEN + this->_firstName + NONE << std::endl;
+	// std::cout << "Enter contact first name: ";
+	// std::cin >> this->_firstName;
+
+	std::cout << GREEN << "Enter " << BOLDGREEN << "last name : " << NONE ;
+	std::cin >> this->_lastName;
+	std::cout << "The last name entered is : " << BOLDGREEN + this->_lastName + NONE << std::endl;
+	// std::cout << "Enter contact first name: ";
+	// std::cin >> this->_firstName;
+
+	std::cout << GREEN << "Enter " << BOLDGREEN << "nick name : " << NONE ;
+	std::cin >> this->_nickName;
+	std::cout << "The nick name entered is : " << BOLDGREEN + this->_nickName + NONE << std::endl;
+	// std::cout << "Enter contact first name: ";
+	// std::cin >> this->_firstName;
+
+	std::cout << GREEN << "Enter " << BOLDGREEN << "phone number : " << NONE ;
+	std::cin >> this->_phone;
+	std::cout << "The phone number entered is : " << BOLDGREEN + this->_phone + NONE << std::endl;
+	// std::cout << "Enter contact first name: ";
+	// std::cin >> this->_firstName;
+
+	std::cout << GREEN << "Enter " << BOLDGREEN << "darkest secret : " << NONE ;
+	std::cin >> this->_secret;
+	std::cout << "The darkest secret entered is : " << BOLDGREEN + this->_secret + NONE << std::endl;
+
 }
 
 std::string Contact::get_firstName(void)

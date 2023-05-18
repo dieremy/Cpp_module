@@ -6,7 +6,7 @@
 /*   By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 23:10:32 by parrot            #+#    #+#             */
-/*   Updated: 2023/05/14 19:17:31 by robegarc         ###   ########.fr       */
+/*   Updated: 2023/05/18 16:54:59 by robegarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,10 @@ class PhoneBook
 {
 	private:
 		Contact cont[8];
+		int		index;
 	public:
-		Contact	addContact(PhoneBook pippofranco, int i);
-		int		searchContact(PhoneBook	pippofranco, Contact *ct, int i);
+		void	addContact(void);
+		int		searchContact(void);
 		int		truncInfo(std::string str);
 		Contact	getContact(void);
 		void	setContact(int i);

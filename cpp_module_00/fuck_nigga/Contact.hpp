@@ -6,7 +6,7 @@
 /*   By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 16:50:33 by robegarc          #+#    #+#             */
-/*   Updated: 2023/05/14 16:50:34 by robegarc         ###   ########.fr       */
+/*   Updated: 2023/05/18 16:55:31 by robegarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@ class Contact
 		std::string	_secret;
 
 	public:
+		void	add_cont(void);
+		void	search_cont(void);
+		
 		std::string get_firstName(void);
 		void set_firstName(std::string str);
 		

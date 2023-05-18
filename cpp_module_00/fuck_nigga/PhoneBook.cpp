@@ -6,25 +6,28 @@
 /*   By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 16:50:26 by robegarc          #+#    #+#             */
-/*   Updated: 2023/05/14 19:17:20 by robegarc         ###   ########.fr       */
+/*   Updated: 2023/05/18 17:06:16 by robegarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 
-// Contact	PhoneBook::getContact(void)
-// {
-//     return ;
-// }
 
-// void	PhoneBook::setContact(int i)
-// {
-//     return ;
-// }
+PhoneBook::PhoneBook()
+{
+	this->index = 0;
+}
+
+PhoneBook::~PhoneBook()
+{
+	for (int i = 0; i < this->index; i++)
+		this->cont[i].~Contact();
+}
 
 int	PhoneBook::truncInfo(std::string str)
 {
+	std::cout << "simone" + str << std::endl;
 	std::cout << " | ";
 	if (str.size() > 10)
 	{
@@ -45,42 +48,49 @@ void	PhoneBook::getInfo(std::string msg, std::string contactStr)
 	return ;
 }
 
-Contact	PhoneBook::addContact(PhoneBook pippofranco, int i)
+void	PhoneBook::addContact()
 {
-	(void)pippofranco;
-
-	Contact ct;
-	std::string input;
-	std::cout << "Correctly adding contact of index no.: " << GREEN << i << NONE << std::endl;
+	std::cout << "Correctly adding contact of index no.: " << GREEN << this->index << NONE << std::endl;
 	
-	input = ct.get_firstName();
-	ct.set_firstName(input);
-	PhoneBook::getInfo("FIRST NAME", input);
+	// this->index == 8
 
-	input = ct.get_lastName();
-	ct.set_lastName(input);
-	PhoneBook::getInfo("LAST NAME", input);
-
-	input = ct.get_nickName();
-	ct.set_nickName(input);
-	PhoneBook::getInfo("NICK NAME", input);
-
-	input = ct.get_phone();
-	ct.set_phone(input);
-	PhoneBook::getInfo("PHONE NUMBER", input);
-
-	input = ct.get_secret();
-	ct.set_secret(input);
-	PhoneBook::getInfo("DARKEST SECRET", input);
-	return (ct);
+	if (this->index != 0)
+	{
+		int x = this->index; 
+		// for (int x = this->index; x >= 0; x--)
+		while (x-- >= 0)
+			this->cont[x + 1] = this->cont[x];
+	}
+	this->cont[0] = Contact();
+	this->cont[0].add_cont();
+	this->index++;
 }
+
+// void HitList::add(void)
+// {
+// 	// if (this->amount == 8)
+// 	// {
+// 	// 	std::cout << "-> It seems you have a lot of people to kill..." << std::endl;
+// 	// 	std::cout << "-> I'll delete the first contact and add this." << std::endl;
+// 	// 	this->contacts[7].~Contact();
+// 	// 	this->amount--;
+// 	// }
+// 	if (this->amount != 0)
+// 	{
+// 		for (int x = this->amount; x >= 0; x--)
+// 			this->contacts[x + 1] = this->contacts[x];
+// 	}
+// 	this->contacts[0] = Contact();
+// 	this->contacts[0].add();
+// 	this->amount++;
+// }
 
 int	ft_is_valid(int n)
 {
 	return ((n >= 0 && n <= 7) ? 1 : 0);
 }
 
-int	PhoneBook::searchContact(PhoneBook pf, Contact *ct, int i)
+int	PhoneBook::searchContact()
 {
 	
 	int	select;
@@ -89,10 +99,17 @@ int	PhoneBook::searchContact(PhoneBook pf, Contact *ct, int i)
 	// std::cout << BLUE << "\tindex | firstname | last name | nickname | number | darkest secret " << NONE << std::endl;
 	// i = 0;
 	
-	std::cout << BLUE << "\t" << i;
-	pf.truncInfo(ct[i].get_firstName());
-	pf.truncInfo(ct[i].get_lastName());
-	pf.truncInfo(ct[i].get_nickName());
+	std::cout << BLUE << "\t" << this->index;
+	// std::cout << ct << std::endl;
+	// std::cout << "godpork" + ct->get_firstName() << "diocane" << std::endl;
+	for (int i = 0; i < this->index; i++)
+	{
+		this->truncInfo(this->cont[i]);
+		this->truncInfo(this->cont[i]._lastName);
+		this->truncInfo(this->cont[i]._secret);
+	}
+	
+	// this->truncInfo(this->_firsName);
 	std::cout << NONE << std::endl;
 	std::cout << "Input desired index: ";
 	std::cin >> select;
@@ -111,12 +128,3 @@ int	PhoneBook::searchContact(PhoneBook pf, Contact *ct, int i)
 	return (0);
 }
 
-PhoneBook::PhoneBook(void)
-{
-	return ;
-}
-
-PhoneBook::~PhoneBook(void)
-{
-    return ;
-}
