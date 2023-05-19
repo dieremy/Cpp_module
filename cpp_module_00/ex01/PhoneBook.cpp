@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 16:50:26 by robegarc          #+#    #+#             */
-/*   Updated: 2023/05/19 18:04:57 by robegarc         ###   ########.fr       */
+/*   Updated: 2023/05/19 21:43:35 by parrot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,6 @@ void	PhoneBook::addContact(int i)
 	std::cout << "The darkest secret entered is : " << BOLDGREEN + this->cont[i].get_secret() + NONE << std::endl;
 }
 
-int	ft_is_valid(int n)
-{
-	return ((n >= 0 && n <= 7) ? 1 : 0);
-}
 
 int	PhoneBook::show_data()
 {
@@ -104,25 +100,30 @@ int	ft_atoi(std::string str)
 	return (r * sign);
 }
 
+int	ft_is_valid(int n)
+{
+	return ((n >= 0 && n <= 7) ? 1 : 0);
+}
+
 int	PhoneBook::searchContact()
 {
 	this->show_data();
 	
 	std::string	number;	
 	std::cout << "Input desired index: ";
-	std::cin >> number;
+	std::getline(std::cin, number);
 			
 	int	select = ft_atoi(number);
 	
-	if (!ft_is_valid(select))
-		std::cout << RED << BAD_USG3 << NONE;
-	else if (ft_is_valid(select))
+	if (ft_is_valid(select))
 	{
-		std::cout << CYAN << "FIRST NAME: " + cont[select].get_firstName() << std::endl;
-		std::cout <<  "LAST NAME: " + cont[select].get_lastName() << std::endl;
-		std::cout << "NICKNAME: " + cont[select].get_nickName() << std::endl;
-		std::cout << "NUMBER: " + cont[select].get_phone() << std::endl;
-		std::cout << "DARKEST SECRET: " + cont[select].get_secret() + NONE << std::endl;
+		std::cout << CYAN << "FIRST NAME:\t" << cont[select].get_firstName() << std::endl;
+		std::cout <<  "LAST NAME:\t" << cont[select].get_lastName() << std::endl;
+		std::cout << "NICKNAME:\t" << cont[select].get_nickName() << std::endl;
+		std::cout << "NUMBER:\t\t" << cont[select].get_phone() << std::endl;
+		std::cout << "DARKEST SECRET:\t" << cont[select].get_secret() + NONE << std::endl;
 	}
+	else
+		std::cout << RED << BAD_USG3 << NONE;
 	return (0);
 }

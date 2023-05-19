@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 16:50:37 by robegarc          #+#    #+#             */
-/*   Updated: 2023/05/19 16:51:01 by robegarc         ###   ########.fr       */
+/*   Updated: 2023/05/19 21:36:23 by parrot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Contact::Contact(void)
 int	Contact::truncInfo(std::string str)
 {
 	std::cout << " | ";
-	if (str.size() > 10)
+	if (str.size() >= 10)
 	{
 		str.resize(9);
 		std::cout << str;
