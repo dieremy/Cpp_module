@@ -3,109 +3,126 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
+/*   By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/08 23:32:52 by parrot            #+#    #+#             */
-/*   Updated: 2023/05/13 00:07:41 by parrot           ###   ########.fr       */
+/*   Created: 2023/05/14 16:50:26 by robegarc          #+#    #+#             */
+/*   Updated: 2023/05/19 18:04:57 by robegarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include "Contact.hpp"
 
-int	PhoneBook::_nbCont = 0;
 
-int	PhoneBook::getContactNb(void)
+PhoneBook::PhoneBook()
 {
-	return PhoneBook::_nbCont;
+
 }
 
-PhoneBook::PhoneBook(void)
+PhoneBook::~PhoneBook()
 {
-	_first_name = "";
-	_last_name = "";
-	_nick_name = "";
-	_number = "";
-	_secret = "";
-	return ;
+
 }
 
-PhoneBook::~PhoneBook(void)
+void	PhoneBook::addContact(int i)
 {
-	return ;
+	std::string	temp;
+	std::cout << "Correctly adding contact of index no.: " << GREEN << i << NONE << std::endl;
+
+	std::cout << GREEN << "Enter " << BOLDGREEN << "first name : " << NONE ;
+	std::getline(std::cin, temp);
+	this->cont[i].set_firstName(temp);
+	std::cout << "The first name entered is : " << BOLDGREEN + this->cont[i].get_firstName() + NONE << std::endl;
+	
+	std::cout << GREEN << "Enter " << BOLDGREEN << "last name : " << NONE ;
+	std::getline(std::cin, temp);
+	this->cont[i].set_lastName(temp);
+	std::cout << "The last name entered is : " << BOLDGREEN + this->cont[i].get_lastName() + NONE << std::endl;
+
+	std::cout << GREEN << "Enter " << BOLDGREEN << "nick name : " << NONE ;
+	std::getline(std::cin, temp);
+	this->cont[i].set_nickName(temp);
+	std::cout << "The nick name entered is : " << BOLDGREEN + this->cont[i].get_nickName() + NONE << std::endl;
+
+	std::cout << GREEN << "Enter " << BOLDGREEN << "phone number : " << NONE ;
+	std::getline(std::cin, temp);
+	this->cont[i].set_phone(temp);
+	std::cout << "The phone number entered is : " << BOLDGREEN + this->cont[i].get_phone() + NONE << std::endl;
+
+	std::cout << GREEN << "Enter " << BOLDGREEN << "darkest secret : " << NONE ;
+	std::getline(std::cin, temp);
+	this->cont[i].set_secret(temp);
+	std::cout << "The darkest secret entered is : " << BOLDGREEN + this->cont[i].get_secret() + NONE << std::endl;
 }
 
-int	PhoneBook::addContact(PhoneBook &contact)
+int	ft_is_valid(int n)
 {
-	if (PhoneBook::_nbCont >= 8)
-	{
-		std::cout << RED << FULL_BOOK;
-		return (0);
-	}
-	PhoneBook::_nbCont++;
-	std::cout << "Correctly adding contact of index no.: " << GREEN << PhoneBook::_nbCont << NONE << std::endl;
-	contact._getInfo("FIRST NAME", contact._first_name);
-	contact._getInfo("LAST NAME", contact._last_name);
-	contact._getInfo("NICKNAME", contact._nick_name);
-	contact._getInfo("PHONE NUMBER", contact._number);
-	contact._getInfo("DARKEST SECRET", contact._secret);
-	return (1);
+	return ((n >= 0 && n <= 7) ? 1 : 0);
 }
 
-void	PhoneBook::_getInfo(std::string msg, std::string &contactStr)
+int	PhoneBook::show_data()
 {
-	std::cout << GREEN << "Enter " << BOLDGREEN << msg + ": " << NONE ;
-	std::cin >> contactStr;
-	std::cout << "The " + msg + " entered is : " << BOLDGREEN + contactStr + NONE << std::endl;
-	return ;
-}
-
-int	PhoneBook::searchContact(PhoneBook *contact)
-{
-	int	select;
 	int	i;
 
-	if (!PhoneBook::getContactNb())
-	{
-		std::cout << RED << BAD_USG2 << NONE;
-		return (-1);
-	}
-	std::cout << BLUE << "\tindex | firstname | last name | nickname | number | darkest secret " << NONE << std::endl;
+	std::cout << CYAN << "--------------------------------------------------" << NONE << std::endl;
+	std::cout << CYAN << "| INDEX    | FIRST_NAME | LAST_NAME  | NICK_NAME |" << NONE << std::endl;
+	std::cout << CYAN << "--------------------------------------------------" << NONE << std::endl;
 	i = -1;
-	while (++i < getContactNb())
+	while (++i < 8)
 	{
-		std::cout << BLUE << "\t" << i + 1;
-		contact[i]._truncInfo(contact[i]._first_name);
-		contact[i]._truncInfo(contact[i]._last_name);
-		contact[i]._truncInfo(contact[i]._nick_name);
-		contact[i]._truncInfo(contact[i]._number);
-		contact[i]._truncInfo(contact[i]._secret);
-		std::cout << NONE << std::endl;
+		std::cout << CYAN << "| " << i << "       ";
+		this->cont[i].show_info();
+		std::cout << CYAN << "--------------------------------------------------" << NONE << std::endl;
+
 	}
-	std::cout << "Input desired index: ";
-	std::cin >> select;
-	if (select < getContactNb() && select > 0)
-	{
-		std::cout << BOLDBLUE << "FIRST NAME: " + contact[select]._first_name << std::endl;
-		std::cout <<  "LAST NAME: " + contact[select]._last_name << std::endl;
-		std::cout << "NICKNAME: " + contact[select]._nick_name << std::endl;
-		std::cout << "NUMBER: " + contact[select]._number << std::endl;
-		std::cout << "DARKEST SECRET: " + contact[select]._secret + NONE << std::endl;
-	}
-	else
-		std::cout << RED << BAD_USG3 << NONE;
-	return (0);
+	return (0);	
 }
 
-int	PhoneBook::_truncInfo(std::string str)
+int	ft_atoi(std::string str)
 {
-	std::cout << " | ";
-	if (str.size() > 10)
+	int	i;
+	int	sign;
+	int	r;
+
+	i = 0;
+	sign = 1;
+	r = 0;
+	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '+' || str[i] == '-')
 	{
-		str.resize(9);
-		std::cout << str;
-		std::cout << ".";
+		if (str[i] == '-')
+			sign = -1;
+		i++;
 	}
-	else
-		std::cout << str;
-	return (0);	
+	while (str[i])
+	{
+		if (!isdigit(str[i]))
+			return (-1);
+		r = r * 10 + str[i++] - '0';
+	}
+	return (r * sign);
+}
+
+int	PhoneBook::searchContact()
+{
+	this->show_data();
+	
+	std::string	number;	
+	std::cout << "Input desired index: ";
+	std::cin >> number;
+			
+	int	select = ft_atoi(number);
+	
+	if (!ft_is_valid(select))
+		std::cout << RED << BAD_USG3 << NONE;
+	else if (ft_is_valid(select))
+	{
+		std::cout << CYAN << "FIRST NAME: " + cont[select].get_firstName() << std::endl;
+		std::cout <<  "LAST NAME: " + cont[select].get_lastName() << std::endl;
+		std::cout << "NICKNAME: " + cont[select].get_nickName() << std::endl;
+		std::cout << "NUMBER: " + cont[select].get_phone() << std::endl;
+		std::cout << "DARKEST SECRET: " + cont[select].get_secret() + NONE << std::endl;
+	}
+	return (0);
 }
