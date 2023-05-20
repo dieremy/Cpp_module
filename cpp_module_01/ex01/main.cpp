@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/20 16:26:53 by robegarc          #+#    #+#             */
-/*   Updated: 2023/05/20 17:53:09 by robegarc         ###   ########.fr       */
+/*   Created: 2023/05/20 18:23:20 by robegarc          #+#    #+#             */
+/*   Updated: 2023/05/20 18:33:08 by robegarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Zombie.hpp"
+#include "includes/Zombie.hpp"
 
-void	randomChump( std::string name )
+int main()
 {
-	Zombie	*jenniferLopez;
+	Zombie	*Jlo;
+	int		i;
 
-	jenniferLopez = newZombie(name);
-	jenniferLopez->announce();
-	jenniferLopez->~Zombie();
+	Jlo = zombieHorde(12, "Jennifer Aniston");
+	i = -1;
+	while (++i < 13)
+		Jlo[i].announce();
+	delete();
+	return (0);
 }

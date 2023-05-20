@@ -6,17 +6,18 @@
 #    By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/08 22:07:27 by parrot            #+#    #+#              #
-#    Updated: 2023/05/20 16:22:25 by robegarc         ###   ########.fr        #
+#    Updated: 2023/05/20 18:22:18 by robegarc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 # PROGRAM
-NAME = account
+NAME = ZombieHorde
 
 
 # FILES
-SRCS = Account.cpp tests.cpp
+SRCS = main.cpp \
+	srcs/zombieHorde.cpp srcs/Zombie.cpp
 OBJS = ${SRCS:.cpp=.o}
 
 
