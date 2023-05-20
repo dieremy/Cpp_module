@@ -6,7 +6,7 @@
 /*   By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 23:10:32 by parrot            #+#    #+#             */
-/*   Updated: 2023/05/19 17:10:02 by robegarc         ###   ########.fr       */
+/*   Updated: 2023/05/20 17:29:26 by robegarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <iostream>
 # include <cstdlib>
 # include <string>
-#include <string> 
+#include <string>
 # include "Contact.hpp"
 
 # define NONE		"\033[0m"
@@ -43,13 +43,13 @@ class PhoneBook
 {
 	private:
 		Contact cont[8];
-		
+
 	public:
 		void	addContact(int i);
 		int		searchContact(void);
 		int		show_data(void);
 		int		truncInfo(std::string str);
-		
+
 		PhoneBook(void);
 		~PhoneBook(void);
 };

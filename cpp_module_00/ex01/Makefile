@@ -3,20 +3,21 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: parrot <parrot@student.42.fr>              +#+  +:+       +#+         #
+#    By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/08 22:07:27 by parrot            #+#    #+#              #
-#    Updated: 2023/05/19 21:21:01 by parrot           ###   ########.fr        #
+#    Updated: 2023/05/20 17:28:06 by robegarc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 # PROGRAM
-NAME = phonebook
+NAME = Phonebook
 
 
 # FILES
-SRCS = main.cpp Contact.cpp PhoneBook.cpp
+SRCS = main.cpp \
+	srcs/Contact.cpp srcs/PhoneBook.cpp
 OBJS = ${SRCS:.cpp=.o}
 
 

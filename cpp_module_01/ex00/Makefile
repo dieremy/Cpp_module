@@ -6,17 +6,18 @@
 #    By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/08 22:07:27 by parrot            #+#    #+#              #
-#    Updated: 2023/05/20 16:20:32 by robegarc         ###   ########.fr        #
+#    Updated: 2023/05/20 16:29:41 by robegarc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 # PROGRAM
-NAME = Account
+NAME = Zombie
 
 
 # FILES
-SRCS = Account.cpp tests.cpp
+SRCS = main.cpp \
+	srcs/Zombie.cpp srcs/newZombie.cpp srcs/randomChump.cpp
 OBJS = ${SRCS:.cpp=.o}
 
 

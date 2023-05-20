@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
+/*   By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 16:50:37 by robegarc          #+#    #+#             */
-/*   Updated: 2023/05/19 21:36:23 by parrot           ###   ########.fr       */
+/*   Updated: 2023/05/20 17:29:36 by robegarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#include "../includes/Contact.hpp"
 
 Contact::Contact(void)
 {
@@ -32,7 +32,7 @@ int	Contact::truncInfo(std::string str)
 			str.append(" ");
 		std::cout << str;
 	}
-	return (0);	
+	return (0);
 }
 
 void	Contact::show_info()

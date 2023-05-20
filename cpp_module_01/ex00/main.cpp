@@ -5,37 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/12 21:33:45 by parrot            #+#    #+#             */
-/*   Updated: 2023/05/20 17:29:08 by robegarc         ###   ########.fr       */
+/*   Created: 2023/05/20 16:20:15 by robegarc          #+#    #+#             */
+/*   Updated: 2023/05/20 17:22:19 by robegarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/PhoneBook.hpp"
+#include "srcs/Zombie.hpp"
 
 int main()
 {
-	PhoneBook 	pippofranco;
-	std::string	cmd;
-	int			i;
+	randomChump("Jennifer Aniston");
+	randomChump("Beyonce");
+	randomChump("Keanu Reeves");
+	randomChump("Brad Pitt");
+	randomChump("Marlon Brando");
+	randomChump("Hanna Montana");
+	randomChump("Tom Cruise");
+	randomChump("Nicole Kidman");
 
-	i = 0;
-	while (1)
+	std::cout << "\n\n\n";
+
+	int i = -1;
+	while (++i < 8)
 	{
-		std::cout << YELLOW << ENTER_CMD << NONE;
-		std::getline(std::cin, cmd);
-		if (cmd == "ADD")
-		{
-			if (i == 8)
-				i = 0;
-			pippofranco.addContact(i);
-			i++;
-		}
-		else if (cmd == "SEARCH")
-			pippofranco.searchContact();
-		else if (cmd == "EXIT")
-			break ;
-		else
-			std::cout << RED << BAD_USG1 << NONE;
+		std::cout << i << " ";
+		randomChump("Scarlett Johansson");
 	}
+
 	return (0);
 }

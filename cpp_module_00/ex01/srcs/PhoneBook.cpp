@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
+/*   By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 16:50:26 by robegarc          #+#    #+#             */
-/*   Updated: 2023/05/19 21:43:35 by parrot           ###   ########.fr       */
+/*   Updated: 2023/05/20 17:29:47 by robegarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
-#include "Contact.hpp"
+#include "../includes/PhoneBook.hpp"
+#include "../includes/Contact.hpp"
 
 
 PhoneBook::PhoneBook()
@@ -33,7 +33,7 @@ void	PhoneBook::addContact(int i)
 	std::getline(std::cin, temp);
 	this->cont[i].set_firstName(temp);
 	std::cout << "The first name entered is : " << BOLDGREEN + this->cont[i].get_firstName() + NONE << std::endl;
-	
+
 	std::cout << GREEN << "Enter " << BOLDGREEN << "last name : " << NONE ;
 	std::getline(std::cin, temp);
 	this->cont[i].set_lastName(temp);
@@ -71,7 +71,7 @@ int	PhoneBook::show_data()
 		std::cout << CYAN << "--------------------------------------------------" << NONE << std::endl;
 
 	}
-	return (0);	
+	return (0);
 }
 
 int	ft_atoi(std::string str)
@@ -108,13 +108,13 @@ int	ft_is_valid(int n)
 int	PhoneBook::searchContact()
 {
 	this->show_data();
-	
-	std::string	number;	
+
+	std::string	number;
 	std::cout << "Input desired index: ";
 	std::getline(std::cin, number);
-			
+
 	int	select = ft_atoi(number);
-	
+
 	if (ft_is_valid(select))
 	{
 		std::cout << CYAN << "FIRST NAME:\t" << cont[select].get_firstName() << std::endl;

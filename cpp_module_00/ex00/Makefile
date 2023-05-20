@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: parrot <parrot@student.42.fr>              +#+  +:+       +#+         #
+#    By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/08 22:07:27 by parrot            #+#    #+#              #
-#    Updated: 2023/05/08 22:38:02 by parrot           ###   ########.fr        #
+#    Updated: 2023/05/20 16:20:47 by robegarc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 # PROGRAM
-NAME = megaphone
+NAME = Megaphone
 
 
 # FILES
