@@ -6,17 +6,17 @@
 #    By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/08 22:07:27 by parrot            #+#    #+#              #
-#    Updated: 2023/05/20 16:17:47 by robegarc         ###   ########.fr        #
+#    Updated: 2023/05/21 16:58:06 by robegarc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 # PROGRAM
-NAME = account
+NAME = HITHISISBRAIN
 
 
 # FILES
-SRCS = Account.cpp tests.cpp
+SRCS = main.cpp
 OBJS = ${SRCS:.cpp=.o}
 
 
