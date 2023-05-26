@@ -6,17 +6,22 @@
 #    By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/08 22:07:27 by parrot            #+#    #+#              #
-#    Updated: 2023/05/20 16:17:49 by robegarc         ###   ########.fr        #
+#    Updated: 2023/05/26 17:29:14 by robegarc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 # PROGRAM
-NAME = account
+NAME = Weapon
 
 
-# FILES
-SRCS = Account.cpp tests.cpp
+# SRCS FILES
+SRCS = main.cpp \
+	srcs/HumanA.cpp \
+	srcs/HumanB.cpp \
+	srcs/Weapon.cpp \
+	
+# OBJ FILES
 OBJS = ${SRCS:.cpp=.o}
 
 

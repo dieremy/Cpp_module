@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/08 23:10:32 by parrot            #+#    #+#             */
-/*   Updated: 2023/05/26 16:54:20 by robegarc         ###   ########.fr       */
+/*   Created: 2023/05/26 16:52:29 by robegarc          #+#    #+#             */
+/*   Updated: 2023/05/26 17:12:49 by robegarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#ifndef WEAPON_H
+# define WEAPON_H
 
 # include <iostream>
 # include <cstdlib>
 # include <string>
-# include <string>
-# include "Contact.hpp"
 
 # define NONE		"\033[0m"
 # define RED		"\033[0;31m"
@@ -32,26 +30,17 @@
 # define BOLDGREEN	"\033[1m\033[32m"
 # define BOLDBLUE	"\033[1m\033[34m"
 
-# define BAD_USG1	"Available commands: ADD | SEARCH | EXIT\n"
-# define BAD_USG2	"No contact in the phonebook. Use ADD to insert a contact\n"
-# define BAD_USG3	"Pls enter a valid index number, SEARCH again.\n"
-# define ENTER_CMD	"Enter command: ADD | SEARCH | EXIT\n"
-# define FULL_BOOK	"The phonebook is full. No new contacts pls.\n"
-
-
-class PhoneBook
+class Weapon
 {
-	private:
-		Contact cont[8];
+    private:
+        std::string _type;
 
-	public:
-		void	addContact(int i);
-		int		searchContact(void);
-		int		show_data(void);
-		int		truncInfo(std::string str);
+    public:
+        void        setType( std::string str );
+        std::string getType( void ) const;
 
-		PhoneBook(void);
-		~PhoneBook(void);
+        Weapon( std::string type );
+        ~Weapon();
 };
 
 #endif
