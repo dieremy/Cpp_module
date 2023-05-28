@@ -6,7 +6,7 @@
 /*   By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 17:03:01 by robegarc          #+#    #+#             */
-/*   Updated: 2023/05/26 17:21:09 by robegarc         ###   ########.fr       */
+/*   Updated: 2023/05/28 15:13:14 by robegarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # define ORANGE		"\033[0;94m"
 # define GREEN		"\033[0;32m"
 # define BLUE		"\033[0;34m"
+# define CYAN		"\033[0;36m"
 # define BOLDGREEN	"\033[1m\033[32m"
 # define BOLDBLUE	"\033[1m\033[34m"
 
@@ -42,6 +43,6 @@ class HumanA
 		
 		HumanA( std::string name, Weapon &Weap );
         ~HumanA();
-    };
+};
 
 #endif
