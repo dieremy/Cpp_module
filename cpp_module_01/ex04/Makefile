@@ -6,17 +6,18 @@
 #    By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/08 22:07:27 by parrot            #+#    #+#              #
-#    Updated: 2023/05/20 16:17:51 by robegarc         ###   ########.fr        #
+#    Updated: 2023/05/28 18:54:55 by robegarc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 # PROGRAM
-NAME = account
+NAME = Sed
 
 
 # FILES
-SRCS = Account.cpp tests.cpp
+SRCS = main.cpp \
+	srcs/sed.cpp
 OBJS = ${SRCS:.cpp=.o}
 
 
