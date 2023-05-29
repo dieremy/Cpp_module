@@ -6,17 +6,20 @@
 #    By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/08 22:07:27 by parrot            #+#    #+#              #
-#    Updated: 2023/05/20 16:17:53 by robegarc         ###   ########.fr        #
+#    Updated: 2023/05/29 12:28:45 by robegarc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 # PROGRAM
-NAME = account
+NAME = Harl2.0
 
 
 # FILES
-SRCS = Account.cpp tests.cpp
+SRCS = main.cpp \
+		srcs/Harl.cpp
+
+		
 OBJS = ${SRCS:.cpp=.o}
 
 
