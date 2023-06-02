@@ -33,6 +33,4 @@
 # define BOLDGREEN	"\033[1m\033[32m"
 # define BOLDBLUE	"\033[1m\033[34m"
 
-int sed( std::string file, std::string s1, std::string s2 );
-
 #endif
