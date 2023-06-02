@@ -3,20 +3,23 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+         #
+#    By: parrot <parrot@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/08 22:07:27 by parrot            #+#    #+#              #
-#    Updated: 2023/05/20 16:17:55 by robegarc         ###   ########.fr        #
+#    Updated: 2023/06/02 18:11:23 by parrot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 # PROGRAM
-NAME = account
+NAME = harlFilter
 
 
 # FILES
-SRCS = Account.cpp tests.cpp
+SRCS = main.cpp \
+		srcs/Harl.cpp
+	
+
 OBJS = ${SRCS:.cpp=.o}
 
 
