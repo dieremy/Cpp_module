@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 12:28:52 by robegarc          #+#    #+#             */
-/*   Updated: 2023/05/29 12:55:02 by robegarc         ###   ########.fr       */
+/*   Updated: 2023/06/02 17:17:32 by parrot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,41 @@ void	Harl::error( void )
 
 void	Harl::complain( std::string level )
 {
-	if (level.compare("DEBUG"))
+	int	i;
+	
+	if (level.compare("DEBUG") && level.compare("INFO") && level.compare("WARNING") && level.compare("ERROR"))
+		std::cout << RED << "\"level\" NOT in scope..." << NONE << std::endl;
+
+	/* MATRIX-FUNCTIONS */
+	void	(Harl::*complain[4])( void ) = 
+	{
+		&Harl::debug,
+		&Harl::info,
+		&Harl::warning,
+		&Harl::error
+	};
+
+	/* MATRIX-FUNCTIONS DECLARATION */
+	std::string	ft_level[4] = 
+	{
+		"DEBUG",
+		"INFO",
+		"WARNING",
+		"ERROR"
+	};
+
+	i = -1;
+	while (++i < 4)
+		if (level == ft_level[i])
+			(this->*complain[i])();
+
+	/* MECHANICHAL WAY */
+	if (!level.compare("DEBUG"))	
 		this->debug();
-	if (level.compare("INFO"))
+	if (!level.compare("INFO"))
 		this->info();
-	if (level.compare("WARNING"))
+	if (!level.compare("WARNING"))
 		this->warning();
-	if (level.compare("ERROR"))
+	if (!level.compare("ERROR"))
 		this->error();
 }
