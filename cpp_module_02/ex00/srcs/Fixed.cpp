@@ -6,7 +6,7 @@
 /*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 20:47:09 by parrot            #+#    #+#             */
-/*   Updated: 2023/06/02 21:59:00 by parrot           ###   ########.fr       */
+/*   Updated: 2023/06/02 22:04:36 by parrot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Fixed	&Fixed::operator=( const Fixed &n )
 {
-	std::cout << "Assignation operator called" << std::endl;
+	std::cout << "Copy assignment operator called" << std::endl;
 	setRawBits(n.getRawBits());
 	return (*this);
 }
