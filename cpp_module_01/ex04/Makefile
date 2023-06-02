@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+         #
+#    By: parrot <parrot@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/08 22:07:27 by parrot            #+#    #+#              #
-#    Updated: 2023/05/28 18:54:55 by robegarc         ###   ########.fr        #
+#    Updated: 2023/06/02 16:20:52 by parrot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,7 @@ NAME = Sed
 
 
 # FILES
-SRCS = main.cpp \
-	srcs/sed.cpp
+SRCS = main.cpp
 OBJS = ${SRCS:.cpp=.o}
 
 

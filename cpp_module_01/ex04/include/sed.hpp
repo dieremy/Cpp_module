@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sed.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 16:22:00 by robegarc          #+#    #+#             */
-/*   Updated: 2023/05/28 18:49:57 by robegarc         ###   ########.fr       */
+/*   Updated: 2023/06/02 14:41:56 by parrot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,6 @@
 # include <cstring>
 # include <iomanip>
 # include <fstream>
-
-// # include <iostream>
-// # include <iomanip>
-// # include <cstring>
-// # include <fstream>
 
 # define NONE		"\033[0m"
 # define RED		"\033[0;31m"
