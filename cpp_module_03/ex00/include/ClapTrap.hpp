@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/03 12:19:03 by robegarc          #+#    #+#             */
-/*   Updated: 2023/06/03 14:26:28 by robegarc         ###   ########.fr       */
+/*   Created: 2023/06/03 14:05:22 by robegarc          #+#    #+#             */
+/*   Updated: 2023/06/03 14:14:25 by robegarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
 # include <iostream>
 # include <cmath>
@@ -34,26 +34,21 @@
 # define BOLDGREEN	"\033[1m\033[32m"
 # define BOLDBLUE	"\033[1m\033[34m"
 
-class	Fixed
+class	ClapTrap
 {
 	private:
-		int					_n;
-		static int const	_bits = 8;
+		std::string	_name; // which is passed as parameter to a constructor
+		int			_hitPoints; // represent the health of the ClapTrap
+		int			_energyPoints;
+		int			_attackDamage;
 
 	public:
-		Fixed	&operator=( const Fixed &nFixed );
-		void	setRawBits( int const raw );
-		int		getRawBits( void ) const ;
-		float	toFloat( void ) const ;
-		int		toInt( void ) const ;
+		void	attack( const std::string& target );
+		void	takeDamage( unsigned int amount );
+		void	beRepaired( unsigned int amount );
 
-		Fixed();
-		Fixed( const Fixed &nFixed );
-		Fixed( const int i );
-		Fixed( const float f );
-		~Fixed();
+		ClapTrap();
+		~ClapTrap();
 };
-
-std::ostream &operator<<( std::ostream &out, const Fixed &nFixed );
 
 #endif

@@ -6,18 +6,18 @@
 #    By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/08 22:07:27 by parrot            #+#    #+#              #
-#    Updated: 2023/06/03 14:20:45 by robegarc         ###   ########.fr        #
+#    Updated: 2023/06/03 14:08:12 by robegarc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 # PROGRAM
-NAME = fixed
+NAME = clapTrap
 
 
 # FILES
 SRCS = main.cpp \
-	srcs/Fixed.cpp
+	srcs/ClapTrap.cpp
 OBJS = ${SRCS:.cpp=.o}
 
 
