@@ -6,18 +6,18 @@
 #    By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/08 22:07:27 by parrot            #+#    #+#              #
-#    Updated: 2023/05/20 16:29:41 by robegarc         ###   ########.fr        #
+#    Updated: 2023/06/03 12:17:07 by robegarc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 # PROGRAM
-NAME = Zombie
+NAME = fixed
 
 
 # FILES
 SRCS = main.cpp \
-	srcs/Zombie.cpp srcs/newZombie.cpp srcs/randomChump.cpp
+	srcs/Fixed.cpp
 OBJS = ${SRCS:.cpp=.o}
 
 
