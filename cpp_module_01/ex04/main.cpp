@@ -6,7 +6,7 @@
 /*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 16:28:12 by robegarc          #+#    #+#             */
-/*   Updated: 2023/06/02 16:28:23 by parrot           ###   ########.fr       */
+/*   Updated: 2023/06/06 00:32:36 by parrot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	replaceStr( std::string *out, std::string s1, std::string s2 )
 	// .find searchesw the string
 	// for te first occurence of the sequence
 	// specified by its arguments "strnstr"
-	
 	size_t	start;
 
 	while ((start = (*out).find(s1)) != std::string::npos)
@@ -38,6 +37,9 @@ int main(int ac, char *av[])
 		std::string	s2;
 		std::string	buff;
 		char		*fileName;
+		char		str[999999];
+		int			i;
+		int			j;
 		
 		s1 = av[2];
 		s2 = av[3];
@@ -50,22 +52,54 @@ int main(int ac, char *av[])
 			std::cout << RED << "IN file couldn't be opened." << NONE << std::endl;
 			return (-1);
 		}
-		fileName = strcat(av[1], ".replace");
-		std::ofstream	ofs(fileName);
-		if (!ofs.is_open())
+		if (strchr(av[1], '.'))
 		{
-			std::cout << RED << "out file couldn't be opened." << NONE << std::endl;
-			return (-1);
-		}	
-		while (std::getline(ifs, buff))
-		{
-			replaceStr(&buff, s1, s2);
-			if (!ifs.eof())
-				ofs << buff << std::endl;
+			i = 0;
+			j = 0;
+			while (av[1][i])
+			{
+				if (av[1][i] == '.')
+					break ;
+				else
+					str[j++] = av[1][i++];
+			}
+			str[j] = 0;
+			fileName = strcat(str, ".replace");
+			std::ofstream	ofs(fileName);
+			if (!ofs.is_open())
+			{
+				std::cout << RED << "OUT file couldn't be opened." << NONE << std::endl;
+				return (-1);
+			}	
+			while (std::getline(ifs, buff))
+			{
+				replaceStr(&buff, s1, s2);
+				if (!ifs.eof())
+					ofs << buff << std::endl;
+			}
+			ofs.close();
+			ifs.close();
+			std::cout << GREEN << "WELL DONE, BOY." << NONE << std::endl;
 		}
-		ofs.close();
-		ifs.close();
-		std::cout << GREEN << "WELL DONE, BOY." << NONE << std::endl;
+		else
+		{		
+			fileName = strcat(av[1], ".replace");
+			std::ofstream	ofs(fileName);
+			if (!ofs.is_open())
+			{
+				std::cout << RED << "OUT file couldn't be opened." << NONE << std::endl;
+				return (-1);
+			}	
+			while (std::getline(ifs, buff))
+			{
+				replaceStr(&buff, s1, s2);
+				if (!ifs.eof())
+					ofs << buff << std::endl;
+			}
+			ofs.close();
+			ifs.close();
+			std::cout << GREEN << "WELL DONE, BOY." << NONE << std::endl;
+		}
 	}
     return (0);
 }
