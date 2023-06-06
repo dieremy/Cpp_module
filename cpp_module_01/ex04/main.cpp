@@ -3,20 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
+/*   By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 16:28:12 by robegarc          #+#    #+#             */
-/*   Updated: 2023/06/06 00:32:36 by parrot           ###   ########.fr       */
+/*   Updated: 2023/06/06 16:37:53 by robegarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/sed.hpp"
 
+// .find() searches the string
+// for te first occurence of the sequence
+// specified by its arguments. "strnstr" alike
+
 int	replaceStr( std::string *out, std::string s1, std::string s2 )
 {
-	// .find searchesw the string
-	// for te first occurence of the sequence
-	// specified by its arguments "strnstr"
 	size_t	start;
 
 	while ((start = (*out).find(s1)) != std::string::npos)
@@ -29,18 +30,18 @@ int	replaceStr( std::string *out, std::string s1, std::string s2 )
 
 int main(int ac, char *av[])
 {
+	std::string	s1;
+	std::string	s2;
+	std::string	buff;
+	char		*fileName;
+	char		str[999999];
+	int			i;
+	int			j;
+	
     if (ac != 4)
 	  	std::cout << RED << "not the right number of elements..." << NONE << std::endl;
     else
 	{
-		std::string	s1;
-		std::string	s2;
-		std::string	buff;
-		char		*fileName;
-		char		str[999999];
-		int			i;
-		int			j;
-		
 		s1 = av[2];
 		s2 = av[3];
 		if (!s1.length() || !s2.length())

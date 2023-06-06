@@ -6,7 +6,7 @@
 /*   By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 17:10:36 by robegarc          #+#    #+#             */
-/*   Updated: 2023/05/28 15:23:51 by robegarc         ###   ########.fr       */
+/*   Updated: 2023/06/06 16:31:36 by robegarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main()
     bob.attack();
     // }
     // {
-    Weapon club = Weapon("crude spiked club");
+    club = Weapon("crude spiked club");
     HumanB jim("Jim");
     jim.setWeapon(club);
     jim.attack();

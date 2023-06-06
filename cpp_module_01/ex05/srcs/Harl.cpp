@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
+/*   By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 12:28:52 by robegarc          #+#    #+#             */
-/*   Updated: 2023/06/02 17:17:32 by parrot           ###   ########.fr       */
+/*   Updated: 2023/06/06 16:38:40 by robegarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,12 +73,12 @@ void	Harl::complain( std::string level )
 			(this->*complain[i])();
 
 	/* MECHANICHAL WAY */
-	if (!level.compare("DEBUG"))	
-		this->debug();
-	if (!level.compare("INFO"))
-		this->info();
-	if (!level.compare("WARNING"))
-		this->warning();
-	if (!level.compare("ERROR"))
-		this->error();
+	// if (!level.compare("DEBUG"))	
+	// 	this->debug();
+	// if (!level.compare("INFO"))
+	// 	this->info();
+	// if (!level.compare("WARNING"))
+	// 	this->warning();
+	// if (!level.compare("ERROR"))
+	// 	this->error();
 }

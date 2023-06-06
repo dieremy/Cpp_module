@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
+/*   By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 12:33:19 by robegarc          #+#    #+#             */
-/*   Updated: 2023/06/02 17:18:08 by parrot           ###   ########.fr       */
+/*   Updated: 2023/06/06 16:39:42 by robegarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main()
 
     harl.complain("DEBUG");
     std::cout << "\n";
-	harl.complain("GODDOG");
+	harl.complain("debug");
     std::cout << "\n";
     harl.complain("INFO");
     std::cout << "\n";
