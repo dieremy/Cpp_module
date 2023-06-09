@@ -6,7 +6,7 @@
 /*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 22:24:06 by parrot            #+#    #+#             */
-/*   Updated: 2023/05/08 22:59:56 by parrot           ###   ########.fr       */
+/*   Updated: 2023/06/09 11:17:14 by robegarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main(int ac, char *av[])
 				else
 					std::cout << av[i][j];
 			}
-			std::cout << " ";
+			//std::cout << " ";
 		}
 	}
 	std::cout << std::endl;

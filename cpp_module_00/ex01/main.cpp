@@ -6,7 +6,7 @@
 /*   By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 21:33:45 by parrot            #+#    #+#             */
-/*   Updated: 2023/05/20 17:29:08 by robegarc         ###   ########.fr       */
+/*   Updated: 2023/06/09 11:28:12 by robegarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ int main()
 			break ;
 		else
 			std::cout << RED << BAD_USG1 << NONE;
+		if (std::cin.eof())
+			return (0);
 	}
 	return (0);
 }

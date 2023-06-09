@@ -6,7 +6,7 @@
 /*   By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 16:50:26 by robegarc          #+#    #+#             */
-/*   Updated: 2023/05/20 17:29:47 by robegarc         ###   ########.fr       */
+/*   Updated: 2023/06/09 11:41:11 by robegarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,8 @@ int	PhoneBook::searchContact()
 	std::string	number;
 	std::cout << "Input desired index: ";
 	std::getline(std::cin, number);
+	if (std::cin.eof())
+		return (0);
 
 	int	select = ft_atoi(number);
 
