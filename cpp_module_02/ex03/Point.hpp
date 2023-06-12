@@ -3,36 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/03 15:46:20 by robegarc          #+#    #+#             */
-/*   Updated: 2023/06/03 15:58:55 by robegarc         ###   ########.fr       */
+/*   Created: 2023/06/12 22:17:27 by parrot            #+#    #+#             */
+/*   Updated: 2023/06/12 23:16:36 by parrot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef POINT_H
-# define POINT_H
+#ifndef POINT_HPP
+# define POINT_HPP
 
 # include "Fixed.hpp"
 
-class Point
+class	Point
 {
 	private:
 		Fixed	_x;
 		Fixed	_y;
 
 	public:
-		Fixed	getX( void ) const;
-		Fixed	getY( void  ) const;
-
-		Point&  operator=( const Point &rhs );
-
-		Point();
+		Point(); // x = 0 y = 0
+		Point( Point const &p );
 		Point( const float x, const float y );
-		Point( const Point &src );
 		~Point();
+		
+		Point	&operator=( Point const &p );
+
+		Fixed	getX( void ) const ;
+		Fixed	getY( void ) const ;
 };
 
-bool	bsp( Point const a, Point const b, Point const c, Point const point );
+bool	bsp( Point const a, Point const b, Point const c, Point const p );
 
 #endif

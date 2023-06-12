@@ -6,7 +6,7 @@
 #    By: parrot <parrot@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/08 22:07:27 by parrot            #+#    #+#              #
-#    Updated: 2023/06/02 20:44:28 by parrot           ###   ########.fr        #
+#    Updated: 2023/06/09 22:13:34 by parrot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ NAME = fixed
 
 # FILES
 SRCS = main.cpp \
-	srcs/Fixed.cpp 
+	Fixed.cpp 
 OBJS = ${SRCS:.cpp=.o}
 
 

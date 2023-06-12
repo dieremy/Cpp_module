@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+         #
+#    By: parrot <parrot@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/08 22:07:27 by parrot            #+#    #+#              #
-#    Updated: 2023/06/03 15:54:33 by robegarc         ###   ########.fr        #
+#    Updated: 2023/06/12 23:20:01 by parrot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ NAME = bsp
 
 # FILES
 SRCS = main.cpp \
-	srcs/Fixed.cpp srcs/Point.cpp srcs/bsp.cpp
+	Fixed.cpp Point.cpp bsp.cpp
+
 OBJS = ${SRCS:.cpp=.o}
 
 

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/02 20:46:19 by parrot            #+#    #+#             */
-/*   Updated: 2023/06/02 21:51:12 by parrot           ###   ########.fr       */
+/*   Created: 2023/06/09 21:53:40 by parrot            #+#    #+#             */
+/*   Updated: 2023/06/12 22:07:21 by parrot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,39 +14,21 @@
 # define FIXED_HPP
 
 # include <iostream>
-# include <cstdlib>
-# include <cstring>
-# include <iomanip>
-# include <fstream>
-
-# define NONE		"\033[0m"
-# define RED		"\033[0;31m"
-# define YELLOW		"\033[0;33m"
-# define MAGENTA	"\033[0;35m"
-# define BLACK		"\033[0;30m"
-# define VIOLET		"\033[0;35m"
-# define WHITE		"\033[0;37m"
-# define ORANGE		"\033[0;94m"
-# define GREEN		"\033[0;32m"
-# define BLUE		"\033[0;34m"
-# define CYAN		"\033[0;36m"
-# define BOLDGREEN	"\033[1m\033[32m"
-# define BOLDBLUE	"\033[1m\033[34m"
 
 class	Fixed
 {
 	private:
-		int					_n;
-		static int const	_bits = 8;
-		
+		int					_number;
+		static const int	_bits = 8;
+
 	public:
-		Fixed	&operator=( const Fixed &n );
 		void	setRawBits( int const raw );
 		int		getRawBits( void ) const ;
-	
-		Fixed();
-		Fixed( const Fixed &n );
-		~Fixed();
+		
+		Fixed();			// A default constructor: used internally to initialize objects and data members when no other value is available. 
+		Fixed( const Fixed &f );				// A copy constructor: used in the implementation of call-by-value parameters.
+		Fixed	&operator=( const Fixed &f );	// An assignment operator: used to assign one value to another.
+		~Fixed();								// A destructor: Invoked when an object is deleted.
 };
 
 #endif

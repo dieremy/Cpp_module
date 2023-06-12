@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/03 12:19:03 by robegarc          #+#    #+#             */
-/*   Updated: 2023/06/03 15:53:33 by robegarc         ###   ########.fr       */
+/*   Created: 2023/06/09 22:26:05 by parrot            #+#    #+#             */
+/*   Updated: 2023/06/12 22:07:37 by parrot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,16 @@
 class	Fixed
 {
 	private:
-		int					_n;
-		static int const	_bits = 8;
-
+		int					_num;
+		static const int	_bits = 8;
+		
 	public:
+		
 		void	setRawBits( int const raw );
-		int		getRawBits( void ) const ;
-		float	toFloat( void ) const ;
-		int		toInt( void ) const ;
-
-		Fixed	&operator=( const Fixed &fixed );
-
+		int		getRawBits( void ) const;
+		float	toFloat( void ) const;
+		int		toInt( void ) const;
+	
 		Fixed	&operator+( const Fixed &fixed );
 		Fixed	&operator-( const Fixed &fixed );
 		Fixed	&operator*( const Fixed &fixed );
@@ -51,14 +50,16 @@ class	Fixed
 		static const Fixed	&min( const Fixed &f1, const Fixed &f2 );
 		static Fixed		&max( Fixed &f1, Fixed &f2 );
 		static const Fixed	&max( const Fixed &f1, const Fixed &f2 );
-
+	
+		Fixed	&operator=( const Fixed &f );
+		
 		Fixed();
-		Fixed( const Fixed &nFixed );
-		Fixed( const int i );
-		Fixed( const float f );
+		Fixed( const Fixed &f );
+		Fixed( const int n );
+		Fixed( const float fp );
 		~Fixed();
 };
 
-std::ostream &operator<<( std::ostream &out, const Fixed &nFixed );
+std::ostream	&operator<<( std::ostream &out, const Fixed &f );
 
 #endif

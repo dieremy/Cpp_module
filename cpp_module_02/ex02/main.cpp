@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/03 14:23:54 by robegarc          #+#    #+#             */
-/*   Updated: 2023/06/03 14:25:05 by robegarc         ###   ########.fr       */
+/*   Created: 2023/06/09 21:51:49 by parrot            #+#    #+#             */
+/*   Updated: 2023/06/12 16:24:02 by parrot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/Fixed.hpp"
+#include "Fixed.hpp"
 
 int main( void )
 {
@@ -23,5 +23,6 @@ int main( void )
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
 	std::cout << Fixed::max( a, b ) << std::endl;
+	
 	return (0);
 }

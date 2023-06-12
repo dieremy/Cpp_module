@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+         #
+#    By: parrot <parrot@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/08 22:07:27 by parrot            #+#    #+#              #
-#    Updated: 2023/06/03 12:17:07 by robegarc         ###   ########.fr        #
+#    Updated: 2023/06/09 22:55:33 by parrot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ NAME = fixed
 
 # FILES
 SRCS = main.cpp \
-	srcs/Fixed.cpp
+	Fixed.cpp 
 OBJS = ${SRCS:.cpp=.o}
 
 
