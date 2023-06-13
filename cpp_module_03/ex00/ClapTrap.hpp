@@ -5,23 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/03 14:05:22 by robegarc          #+#    #+#             */
-/*   Updated: 2023/06/09 23:25:52 by parrot           ###   ########.fr       */
+/*   Created: 2023/06/13 15:38:13 by parrot            #+#    #+#             */
+/*   Updated: 2023/06/13 22:49:52 by parrot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// • Name, which is passed as parameter to a constructor
+// • Hit points (10), represent the health of the ClapTrap
+// • Energy points (10)
+// • Attack damage (0)
+// Add the following public member functions so the ClapTrap looks more realistic:
+// • void attack(const std::string& target);
+// • void takeDamage(unsigned int amount);
+// • void beRepaired(unsigned int amount);
 
 #ifndef CLAPTRAP_HPP
 # define CLAPTRAP_HPP
 
-# include "Global.hpp"
+# include <iostream>
 
 class	ClapTrap
 {
 	private:
-		std::string	_name; // which is passed as parameter to a constructor
-		int			_hitPoints; // represent the health of the ClapTrap
-		int			_energyPoints;
-		int			_attackDamage;
+		std::string	_name;
+		int			_hPoints;
+		int			_ePoints;
+		int			_aDamage;
 
 	public:
 		void		attack( const std::string& target );
@@ -33,17 +42,17 @@ class	ClapTrap
 		void		setEp( int ep );
 		void		setAd( int ad );
 
-		std::string	getName( void );
-		int			getHp( void );
-		int			getEp( void );
-		int			getAd( void );
-
-		ClapTrap	&operator=( const ClapTrap &cp );
+		std::string	getName( void ) const ;
+		int			getHp( void ) const ;
+		int			getEp( void ) const ;
+		int			getAd( void ) const ;
 
 		ClapTrap();
-		ClapTrap( const ClapTrap &cp );
 		ClapTrap( std::string name );
-		virtual ~ClapTrap();
+		ClapTrap( const ClapTrap &ct );
+		~ClapTrap();
+
+		ClapTrap	&operator=( const ClapTrap &ct );
 };
 
 #endif
