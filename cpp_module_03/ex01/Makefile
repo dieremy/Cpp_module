@@ -6,18 +6,18 @@
 #    By: parrot <parrot@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/08 22:07:27 by parrot            #+#    #+#              #
-#    Updated: 2023/06/13 22:23:51 by parrot           ###   ########.fr        #
+#    Updated: 2023/06/15 14:48:03 by parrot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 # PROGRAM
-NAME = clapTrap
+NAME = scavTrap
 
 
 # FILES
 SRCS = main.cpp \
-	ClapTrap.cpp
+	ClapTrap.cpp ScavTrap.cpp
 
 	
 OBJS = ${SRCS:.cpp=.o}

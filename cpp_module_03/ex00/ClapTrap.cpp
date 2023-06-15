@@ -6,11 +6,16 @@
 /*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 15:38:55 by parrot            #+#    #+#             */
-/*   Updated: 2023/06/13 23:11:52 by parrot           ###   ########.fr       */
+/*   Updated: 2023/06/15 15:40:21 by parrot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+
+ClapTrap::ClapTrap()
+{
+	std::cout << "ClapTrap default constructor called" << std::endl;
+}
 
 ClapTrap::ClapTrap( std::string name )
 {
@@ -18,7 +23,7 @@ ClapTrap::ClapTrap( std::string name )
 	this->_hPoints = 10;
 	this->_ePoints = 10;
 	this->_aDamage = 0;
-	std::cout << "ClapTrap " << this->_name << " default constructor called" << std::endl;
+	std::cout << "ClapTrap " << this->_name << " constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap( const ClapTrap &ct )

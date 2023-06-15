@@ -6,34 +6,36 @@
 /*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:11:20 by parrot            #+#    #+#             */
-/*   Updated: 2023/06/13 23:53:38 by parrot           ###   ########.fr       */
+/*   Updated: 2023/06/15 14:58:41 by parrot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int	testOne()
 {
-	ClapTrap c1("Michael Jackson");
-	ClapTrap c2("Kurt Cobain");
+	ScavTrap s1("Brad Pitt");
+	ScavTrap s2("Chiara Ferragni");
 	int i = -1;
 	
 	std::cout << "\nSTART-GAME\n" << std::endl;
 
-	while (c1.getHp() > 0 && c2.getHp() && ++i < 5)
+	while (s1.getHp() > 0 && s2.getHp() && ++i < 5)
 	{
-		if (c1.getEp() >= 1 && c1.getHp() >= 1)
+		if (s1.getEp() >= 1 && s1.getHp() >= 1)
 		{
-			c1.attack( c2.getName() );
-			c2.takeDamage( c1.getAd() );
+			s1.attack( s2.getName() );
+			s2.takeDamage( s1.getAd() );
 		}
-		if (c2.getEp() >= 1 && c2.getHp() >= 1)
+		if (s2.getEp() >= 1 && s2.getHp() >= 1)
 		{
-			c2.attack( c1.getName() );
-			c1.takeDamage( c2.getAd() );
+			s2.attack( s1.getName() );
+			s1.takeDamage( s2.getAd() );
 		}
-		c1.beRepaired(1);
-		c2.beRepaired(1);
+		s1.beRepaired(1);
+		s2.beRepaired(1);
+		s1.guardGate();
+		s2.guardGate();
 		std::cout << std::endl;
 	}
 	std::cout << "END-GAME\n" << std::endl;
@@ -42,45 +44,48 @@ int	testOne()
 
 int	testTwo()
 {
-	ClapTrap c1("Jennifer Aniston");
-	ClapTrap c2("Barbra Streisand");
-	ClapTrap c3("Sandra Bullock");
-	ClapTrap c4("Snoop Dogg");
+	ScavTrap s1("Shia Labeouf");
+	ScavTrap s2("Lara Croft");
+	ScavTrap s3("Mickey Mouse");
+	ScavTrap s4("Elettra Lamborghini");
 	std::cout << std::endl;
 	
-	c1.attack( c2.getName() );
-	c2.takeDamage(5);
-	c2.takeDamage(5);
-	c2.takeDamage(5);
-	c2.beRepaired(5);
-	c2.beRepaired(5);
-	c3.attack( c1.getName() );
-	c1.takeDamage(5);
-	c1.beRepaired(5);
-	c4.beRepaired(5);
-	c4.beRepaired(5);
-	c4.beRepaired(5);
-	c4.beRepaired(5);
-	c4.beRepaired(5);
-	c4.beRepaired(5);
+	s1.attack( s2.getName() );
+	s2.takeDamage(5);
+	s2.takeDamage(5);
+	s2.takeDamage(5);
+	s2.beRepaired(5);
+	s2.guardGate();
+	s2.beRepaired(5);
+	s3.attack( s1.getName() );
+	s1.takeDamage(5);
+	s1.guardGate();
+	s1.beRepaired(5);
+	s4.beRepaired(5);
+	s4.beRepaired(5);
+	s4.beRepaired(5);
+	s4.beRepaired(5);
+	s4.guardGate();
+	s4.beRepaired(5);
+	s4.beRepaired(5);
 	std::cout << std::endl;
 
-	std::cout << "C1 NAME: " << c1.getName() << std::endl;
-	std::cout << "C2 NAME: " << c2.getName() << std::endl;
-	std::cout << "C3 NAME: " << c3.getName() << std::endl;
-	std::cout << "C4 NAME: " << c4.getName() << std::endl;
+	std::cout << "s1 NAME: " << s1.getName() << std::endl;
+	std::cout << "s2 NAME: " << s2.getName() << std::endl;
+	std::cout << "s3 NAME: " << s3.getName() << std::endl;
+	std::cout << "s4 NAME: " << s4.getName() << std::endl;
 	std::cout << std::endl;
 
-	std::cout << "C1 HP: " << c1.getHp() << std::endl;
-	std::cout << "C2 HP: " << c2.getHp() << std::endl;
-	std::cout << "C3 HP: " << c3.getHp() << std::endl;
-	std::cout << "C4 HP: " << c4.getHp() << std::endl;
+	std::cout << "s1 HP: " << s1.getHp() << std::endl;
+	std::cout << "s2 HP: " << s2.getHp() << std::endl;
+	std::cout << "s3 HP: " << s3.getHp() << std::endl;
+	std::cout << "s4 HP: " << s4.getHp() << std::endl;
 	std::cout << std::endl;
 	
-	std::cout << "C1 EP: " << c1.getEp() << std::endl;
-	std::cout << "C2 EP: " << c2.getEp() << std::endl;
-	std::cout << "C3 EP: " << c3.getEp() << std::endl;
-	std::cout << "C4 EP: " << c4.getEp() << std::endl;
+	std::cout << "s1 EP: " << s1.getEp() << std::endl;
+	std::cout << "s2 EP: " << s2.getEp() << std::endl;
+	std::cout << "s3 EP: " << s3.getEp() << std::endl;
+	std::cout << "s4 EP: " << s4.getEp() << std::endl;
 	std::cout << std::endl;
 	return (0);
 }
