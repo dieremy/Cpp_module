@@ -6,7 +6,7 @@
 /*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 15:38:13 by parrot            #+#    #+#             */
-/*   Updated: 2023/06/15 14:21:17 by parrot           ###   ########.fr       */
+/*   Updated: 2023/06/16 14:30:00 by parrot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 
 class	ClapTrap
 {
-	private:
+	protected:
 		std::string	_name;
 		int			_hPoints;
 		int			_ePoints;

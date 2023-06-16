@@ -6,7 +6,7 @@
 /*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 14:16:08 by parrot            #+#    #+#             */
-/*   Updated: 2023/06/15 15:29:22 by parrot           ###   ########.fr       */
+/*   Updated: 2023/06/16 14:42:48 by parrot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,7 @@
 
 class	ScavTrap: public ClapTrap
 {
-	private:
-		std::string	_name;
-		int			_hPoints;
-		int			_ePoints;
-		int			_aDamage;
-
 	public:
-		void		attack( const std::string& target );
-		void		takeDamage( unsigned int amount );
-		void		beRepaired( unsigned int amount );
 		void		guardGate( void );
 
 		ScavTrap();

@@ -6,12 +6,13 @@
 /*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 15:38:55 by parrot            #+#    #+#             */
-/*   Updated: 2023/06/15 15:40:21 by parrot           ###   ########.fr       */
+/*   Updated: 2023/06/16 14:39:03 by parrot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
+/* ORTHODOX CANONICAL FORM */
 ClapTrap::ClapTrap()
 {
 	std::cout << "ClapTrap default constructor called" << std::endl;
@@ -51,6 +52,8 @@ ClapTrap	&ClapTrap::operator=( const ClapTrap &ct )
 	return ( *this );
 }
 
+
+/* CLASS METHODS */
 void		ClapTrap::attack( const std::string& target )
 {
 	this->_ePoints -= 1;	
@@ -85,6 +88,8 @@ void		ClapTrap::beRepaired( unsigned int amount )
 	std::cout << "ClapTrap " << this->_name << " was repaired with " << amount << " points!" << std::endl;
 }
 
+
+/* SETTERS */
 void		ClapTrap::setName( std::string name )
 {
 	this->_name = name;
@@ -105,6 +110,8 @@ void		ClapTrap::setAd( int ad )
 	this->_aDamage = ad;
 }
 
+
+/* GETTERS */
 std::string	ClapTrap::getName( void ) const
 {
 	return ( this->_name );
