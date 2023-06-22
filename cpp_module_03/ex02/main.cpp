@@ -1,39 +1,29 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/13 16:11:20 by parrot            #+#    #+#             */
-/*   Updated: 2023/06/13 23:53:38 by parrot           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
 
 int	testOne()
 {
-	ClapTrap c1("Michael Jackson");
-	ClapTrap c2("Kurt Cobain");
+	FragTrap f1("Brad Pitt");
+	FragTrap f2("Chiara Ferragni");
 	int i = -1;
 	
 	std::cout << "\nSTART-GAME\n" << std::endl;
 
-	while (c1.getHp() > 0 && c2.getHp() && ++i < 5)
+	while (f1.getHp() > 0 && f2.getHp() && ++i < 5)
 	{
-		if (c1.getEp() >= 1 && c1.getHp() >= 1)
+		if (f1.getEp() >= 1 && f1.getHp() >= 1)
 		{
-			c1.attack( c2.getName() );
-			c2.takeDamage( c1.getAd() );
+			f1.attack( f2.getName() );
+			f2.takeDamage( f1.getAd() );
 		}
-		if (c2.getEp() >= 1 && c2.getHp() >= 1)
+		if (f2.getEp() >= 1 && f2.getHp() >= 1)
 		{
-			c2.attack( c1.getName() );
-			c1.takeDamage( c2.getAd() );
+			f2.attack( f1.getName() );
+			f1.takeDamage( f2.getAd() );
 		}
-		c1.beRepaired(1);
-		c2.beRepaired(1);
+		f1.beRepaired(1);
+		f2.beRepaired(1);
+		f1.highFiveGuys();
+		f2.highFiveGuys();
 		std::cout << std::endl;
 	}
 	std::cout << "END-GAME\n" << std::endl;
@@ -42,45 +32,48 @@ int	testOne()
 
 int	testTwo()
 {
-	ClapTrap c1("Jennifer Aniston");
-	ClapTrap c2("Barbra Streisand");
-	ClapTrap c3("Sandra Bullock");
-	ClapTrap c4("Snoop Dogg");
+	FragTrap f1("Shia Labeouf");
+	FragTrap f2("Lara Croft");
+	FragTrap f3("Mickey Mouse");
+	FragTrap f4("Elettra Lamborghini");
 	std::cout << std::endl;
 	
-	c1.attack( c2.getName() );
-	c2.takeDamage(5);
-	c2.takeDamage(5);
-	c2.takeDamage(5);
-	c2.beRepaired(5);
-	c2.beRepaired(5);
-	c3.attack( c1.getName() );
-	c1.takeDamage(5);
-	c1.beRepaired(5);
-	c4.beRepaired(5);
-	c4.beRepaired(5);
-	c4.beRepaired(5);
-	c4.beRepaired(5);
-	c4.beRepaired(5);
-	c4.beRepaired(5);
+	f1.attack( f2.getName() );
+	f2.takeDamage(5);
+	f2.takeDamage(5);
+	f2.takeDamage(5);
+	f2.beRepaired(5);
+	f2.highFiveGuys();
+	f2.beRepaired(5);
+	f3.attack( f1.getName() );
+	f1.takeDamage(5);
+	f1.highFiveGuys();
+	f1.beRepaired(5);
+	f4.beRepaired(5);
+	f4.beRepaired(5);
+	f4.beRepaired(5);
+	f4.beRepaired(5);
+	f4.highFiveGuys();
+	f4.beRepaired(5);
+	f4.beRepaired(5);
 	std::cout << std::endl;
 
-	std::cout << "C1 NAME: " << c1.getName() << std::endl;
-	std::cout << "C2 NAME: " << c2.getName() << std::endl;
-	std::cout << "C3 NAME: " << c3.getName() << std::endl;
-	std::cout << "C4 NAME: " << c4.getName() << std::endl;
+	std::cout << "f1 NAME: " << f1.getName() << std::endl;
+	std::cout << "f2 NAME: " << f2.getName() << std::endl;
+	std::cout << "f3 NAME: " << f3.getName() << std::endl;
+	std::cout << "f4 NAME: " << f4.getName() << std::endl;
 	std::cout << std::endl;
 
-	std::cout << "C1 HP: " << c1.getHp() << std::endl;
-	std::cout << "C2 HP: " << c2.getHp() << std::endl;
-	std::cout << "C3 HP: " << c3.getHp() << std::endl;
-	std::cout << "C4 HP: " << c4.getHp() << std::endl;
+	std::cout << "f1 HP: " << f1.getHp() << std::endl;
+	std::cout << "f2 HP: " << f2.getHp() << std::endl;
+	std::cout << "f3 HP: " << f3.getHp() << std::endl;
+	std::cout << "f4 HP: " << f4.getHp() << std::endl;
 	std::cout << std::endl;
 	
-	std::cout << "C1 EP: " << c1.getEp() << std::endl;
-	std::cout << "C2 EP: " << c2.getEp() << std::endl;
-	std::cout << "C3 EP: " << c3.getEp() << std::endl;
-	std::cout << "C4 EP: " << c4.getEp() << std::endl;
+	std::cout << "f1 EP: " << f1.getEp() << std::endl;
+	std::cout << "f2 EP: " << f2.getEp() << std::endl;
+	std::cout << "f3 EP: " << f3.getEp() << std::endl;
+	std::cout << "f4 EP: " << f4.getEp() << std::endl;
 	std::cout << std::endl;
 	return (0);
 }

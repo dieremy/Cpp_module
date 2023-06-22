@@ -1,23 +1,10 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: parrot <parrot@student.42.fr>              +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/05/08 22:07:27 by parrot            #+#    #+#              #
-#    Updated: 2023/06/13 22:23:51 by parrot           ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-
 # PROGRAM
-NAME = clapTrap
+NAME = diamondTrap
 
 
 # FILES
 SRCS = main.cpp \
-	ClapTrap.cpp
+	ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 
 	
 OBJS = ${SRCS:.cpp=.o}

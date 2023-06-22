@@ -1,39 +1,29 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/13 16:11:20 by parrot            #+#    #+#             */
-/*   Updated: 2023/06/13 23:53:38 by parrot           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "ClapTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int	testOne()
 {
-	ClapTrap c1("Michael Jackson");
-	ClapTrap c2("Kurt Cobain");
+	DiamondTrap d1("Brad Pitt");
+	DiamondTrap d2("Chiara Ferragni");
 	int i = -1;
 	
 	std::cout << "\nSTART-GAME\n" << std::endl;
 
-	while (c1.getHp() > 0 && c2.getHp() && ++i < 5)
+	while (d1.getHp() > 0 && d2.getHp() && ++i < 5)
 	{
-		if (c1.getEp() >= 1 && c1.getHp() >= 1)
+		if (d1.getEp() >= 1 && d1.getHp() >= 1)
 		{
-			c1.attack( c2.getName() );
-			c2.takeDamage( c1.getAd() );
+			d1.attack( d2.getName() );
+			d2.takeDamage( d1.getAd() );
 		}
-		if (c2.getEp() >= 1 && c2.getHp() >= 1)
+		if (d2.getEp() >= 1 && d2.getHp() >= 1)
 		{
-			c2.attack( c1.getName() );
-			c1.takeDamage( c2.getAd() );
+			d2.attack( d1.getName() );
+			d1.takeDamage( d2.getAd() );
 		}
-		c1.beRepaired(1);
-		c2.beRepaired(1);
+		d1.beRepaired(1);
+		d2.beRepaired(1);
+		d1.highFiveGuys();
+		d2.highFiveGuys();
 		std::cout << std::endl;
 	}
 	std::cout << "END-GAME\n" << std::endl;
@@ -42,45 +32,48 @@ int	testOne()
 
 int	testTwo()
 {
-	ClapTrap c1("Jennifer Aniston");
-	ClapTrap c2("Barbra Streisand");
-	ClapTrap c3("Sandra Bullock");
-	ClapTrap c4("Snoop Dogg");
+	DiamondTrap d1("Shia Labeouf");
+	DiamondTrap d2("Lara Croft");
+	DiamondTrap d3("Mickey Mouse");
+	DiamondTrap d4("Elettra Lamborghini");
 	std::cout << std::endl;
 	
-	c1.attack( c2.getName() );
-	c2.takeDamage(5);
-	c2.takeDamage(5);
-	c2.takeDamage(5);
-	c2.beRepaired(5);
-	c2.beRepaired(5);
-	c3.attack( c1.getName() );
-	c1.takeDamage(5);
-	c1.beRepaired(5);
-	c4.beRepaired(5);
-	c4.beRepaired(5);
-	c4.beRepaired(5);
-	c4.beRepaired(5);
-	c4.beRepaired(5);
-	c4.beRepaired(5);
+	d1.attack( d2.getName() );
+	d2.takeDamage(5);
+	d2.takeDamage(5);
+	d2.takeDamage(5);
+	d2.beRepaired(5);
+	d2.highFiveGuys();
+	d2.beRepaired(5);
+	d3.attack( d1.getName() );
+	d1.takeDamage(5);
+	d1.highFiveGuys();
+	d1.beRepaired(5);
+	d4.beRepaired(5);
+	d4.beRepaired(5);
+	d4.beRepaired(5);
+	d4.beRepaired(5);
+	d4.highFiveGuys();
+	d4.beRepaired(5);
+	d4.beRepaired(5);
 	std::cout << std::endl;
 
-	std::cout << "C1 NAME: " << c1.getName() << std::endl;
-	std::cout << "C2 NAME: " << c2.getName() << std::endl;
-	std::cout << "C3 NAME: " << c3.getName() << std::endl;
-	std::cout << "C4 NAME: " << c4.getName() << std::endl;
+	std::cout << "d1 NAME: " << d1.getName() << std::endl;
+	std::cout << "d2 NAME: " << d2.getName() << std::endl;
+	std::cout << "d3 NAME: " << d3.getName() << std::endl;
+	std::cout << "d4 NAME: " << d4.getName() << std::endl;
 	std::cout << std::endl;
 
-	std::cout << "C1 HP: " << c1.getHp() << std::endl;
-	std::cout << "C2 HP: " << c2.getHp() << std::endl;
-	std::cout << "C3 HP: " << c3.getHp() << std::endl;
-	std::cout << "C4 HP: " << c4.getHp() << std::endl;
+	std::cout << "d1 HP: " << d1.getHp() << std::endl;
+	std::cout << "d2 HP: " << d2.getHp() << std::endl;
+	std::cout << "d3 HP: " << d3.getHp() << std::endl;
+	std::cout << "d4 HP: " << d4.getHp() << std::endl;
 	std::cout << std::endl;
 	
-	std::cout << "C1 EP: " << c1.getEp() << std::endl;
-	std::cout << "C2 EP: " << c2.getEp() << std::endl;
-	std::cout << "C3 EP: " << c3.getEp() << std::endl;
-	std::cout << "C4 EP: " << c4.getEp() << std::endl;
+	std::cout << "d1 EP: " << d1.getEp() << std::endl;
+	std::cout << "d2 EP: " << d2.getEp() << std::endl;
+	std::cout << "d3 EP: " << d3.getEp() << std::endl;
+	std::cout << "d4 EP: " << d4.getEp() << std::endl;
 	std::cout << std::endl;
 	return (0);
 }
