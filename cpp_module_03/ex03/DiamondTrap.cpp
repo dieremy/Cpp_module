@@ -11,7 +11,7 @@ DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap()
 DiamondTrap::DiamondTrap( std::string name ) : ClapTrap( name + "_clap_name" ), ScavTrap( name ), FragTrap( name )
 {
 	this->ClapTrap::setName( name + "_clap_name" );
-	this->_name = name;
+	this->_dName = name;
 	this->_hPoints = this->FragTrap::getHp();
 	this->_ePoints = this->ScavTrap::getEp();
 	this->_aDamage = this->FragTrap::getAd();
