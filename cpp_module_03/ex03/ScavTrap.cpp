@@ -54,7 +54,16 @@ void		ScavTrap::guardGate( void )
 	<< " is now in Gate keeper mode" << std::endl;
 }
 
-
+void		ScavTrap::attack( const std::string& target )
+{
+	this->_ePoints -= 1;	
+	if ( this->_ePoints < 1 || this->_hPoints < 1 )
+	{
+		std::cout << "[ScavTrap] " << this->_name << " can't attack" << std::endl;
+		return ;
+	}
+	std::cout << "[ScavTrap] " << this->_name << " attacks " << target << ", causing " << this->_aDamage << " points of damage!" << std::endl;
+}
 // • Name, which is passed as parameter to a constructor
 // • Hit points (100), represent the health of the ClapTrap
 // • Energy points (50)

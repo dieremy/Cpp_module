@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/13 16:11:20 by parrot            #+#    #+#             */
-/*   Updated: 2023/06/15 14:58:41 by parrot           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "ScavTrap.hpp"
 
 int	testOne()
@@ -63,6 +51,7 @@ int	testTwo()
 	s1.beRepaired(5);
 	s4.beRepaired(5);
 	s4.beRepaired(5);
+	s4.attack( s1.getName() );
 	s4.beRepaired(5);
 	s4.beRepaired(5);
 	s4.guardGate();

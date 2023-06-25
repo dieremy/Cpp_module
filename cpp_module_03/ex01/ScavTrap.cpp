@@ -1,21 +1,9 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/15 14:24:01 by parrot            #+#    #+#             */
-/*   Updated: 2023/06/16 14:43:51 by parrot           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "ScavTrap.hpp"
 
 /* ORTHODOX CANONICAL FORM */
 ScavTrap::ScavTrap() : ClapTrap()
 {
-	std::cout << "ScavTrap " << this->_name \
+	std::cout << "[ScavTrap] " << this->_name \
 	<< " default constructor called" << std::endl;
 }
 
@@ -25,21 +13,21 @@ ScavTrap::ScavTrap( std::string name )
 	this->_hPoints = 100;
 	this->_ePoints = 50;
 	this->_aDamage = 20;
-	std::cout << "ScavTrap " << this->_name \
+	std::cout << "[ScavTrap] " << this->_name \
 	<< " constructor called" << std::endl;
 }
 
 ScavTrap::ScavTrap( const ScavTrap &st ) : ClapTrap( st )
 {
 	*this = st;
-	std::cout << "ScavTrap " << this->_name \
+	std::cout << "[ScavTrap] " << this->_name \
 	<< " copy constructor called" << std::endl;
 	return ;
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap " << this->_name \
+	std::cout << "[ScavTrap] " << this->_name \
 	<< " destructor called" << std::endl;
 	return ;
 }
@@ -47,7 +35,7 @@ ScavTrap::~ScavTrap()
 ScavTrap	&ScavTrap::operator=( const ScavTrap &st )
 {
 	std::cout << \
-	"ScavTrap copy assignment operator called" << std::endl;
+	"[ScavTrap] copy assignment operator called" << std::endl;
 	if ( this == &st )
 		return ( *this );
 
@@ -62,11 +50,20 @@ ScavTrap	&ScavTrap::operator=( const ScavTrap &st )
 /* CLASS METHODS */
 void		ScavTrap::guardGate( void )
 {
-	std::cout << "ScavTrap " << this->_name \
+	std::cout << "[ScavTrap] " << this->_name \
 	<< " is now in Gate keeper mode" << std::endl;
 }
 
-
+void		ScavTrap::attack( const std::string& target )
+{
+	this->_ePoints -= 1;	
+	if ( this->_ePoints < 1 || this->_hPoints < 1 )
+	{
+		std::cout << "[ScavTrap] " << this->_name << " can't attack" << std::endl;
+		return ;
+	}
+	std::cout << "[ScavTrap] " << this->_name << " attacks " << target << ", causing " << this->_aDamage << " points of damage!" << std::endl;
+}
 // • Name, which is passed as parameter to a constructor
 // • Hit points (100), represent the health of the ClapTrap
 // • Energy points (50)
