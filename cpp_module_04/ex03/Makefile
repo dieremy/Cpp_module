@@ -1,23 +1,10 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/05/08 22:07:27 by parrot            #+#    #+#              #
-#    Updated: 2023/06/03 14:08:12 by robegarc         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-
 # PROGRAM
-NAME = clapTrap
+NAME = interface
 
 
 # FILES
 SRCS = main.cpp \
-	srcs/ClapTrap.cpp
+	AMateria.cpp Character.cpp Cure.cpp ICharacter.cpp Ice.cpp IMateriaSource.cpp MateriaSource.cpp 
 OBJS = ${SRCS:.cpp=.o}
 
 
