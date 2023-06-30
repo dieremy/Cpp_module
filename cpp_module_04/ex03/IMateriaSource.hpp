@@ -6,7 +6,7 @@
 class	IMateriaSource
 {
 	public:
-		virtual ~IMateriaSource();
+		virtual ~IMateriaSource(); { std::cout << "[IMateriaSource] Destructor called" << std::endl; }
 		virtual void		learnMateria( AMateria* ) = 0;
 		virtual AMateria	*createMateria( std::string const &type ) = 0;
 };
