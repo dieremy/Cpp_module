@@ -2,7 +2,7 @@
 
 Bureaucrat::Bureaucrat() : _name("NONE"), _grade(150)
 {
-  std::cout << "[Bureaucrat] Default cosntuctor called" << std::endl;
+  std::cout << "[Bureaucrat] Default constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat( std::string name, int grade ) : _name(name), _grade(grade)
@@ -11,19 +11,19 @@ Bureaucrat::Bureaucrat( std::string name, int grade ) : _name(name), _grade(grad
 		throw GradeTooHighException();
 	else if ( this->_grade > 150 )
 		throw GradeTooLowException();
-	std::cout << "[Bureaucrat] " << this->_name << " cosntuctor called" << std::endl;
+	std::cout << "[Bureaucrat] " << this->_name << " constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat( const Bureaucrat &B )
 {
-  std::cout << "[Bureaucrat] Copy assignement cosntuctor called" << std::endl;
+  std::cout << "[Bureaucrat] Copy assignment constructor called" << std::endl;
   *this = B;
   return ;
 }
 
 Bureaucrat::~Bureaucrat()
 {
-  std::cout << "[Bureaucrat] Destructor called" << std::endl;
+  std::cout << "[Bureaucrat] " << this->_name << " Destructor called" << std::endl;
   return ;
 }
 
