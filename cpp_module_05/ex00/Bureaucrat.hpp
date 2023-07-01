@@ -5,24 +5,26 @@
 
 class   Bureaucrat
 {
-  private:
-    std::string const   _name;
-    int                 _grade;
+	private:
+		std::string const   _name;
+		int                 _grade;
 
-  public:
-    Bureaucrat();
-    Bureaucrat( const Bureaucrat &B );
-    ~Bureaucrat();
+	public:
+		Bureaucrat();
+		Bureaucrat( std::string name, int grade );
+		Bureaucrat( const Bureaucrat &B );
+		~Bureaucrat();
 
-    Bureaucrat          &operator=( const Bureaucrat &B );
+		Bureaucrat          &operator=( const Bureaucrat &B );
 
-    std::ostream        &operator<<( std::ostream &out, const Bureaucrat &B );
-    std::string         getName( void );
-    int                 getGrade( void );
-    std::exception      GradeTooHighException( void );
-    std::exception      GradeTooLowException( void );
-    void                increaseGrade( int n );
-    void                decreaseGrade( int n );
+		std::string         getName( void ) const ;
+		int                 getGrade( void ) const ;
+		void                increaseGrade( int n );
+		void                decreaseGrade( int n );
+		std::exception      GradeTooHighException( void );
+		std::exception      GradeTooLowException( void );
 };
+
+std::ostream        &operator<<( std::ostream &out, const Bureaucrat &B );
 
 #endif
