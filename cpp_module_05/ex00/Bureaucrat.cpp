@@ -2,8 +2,20 @@
 
 Bureaucrat::Bureaucrat()
 {
-  this->_grade = getGrade();
-  this->_name = getName();
+  this->_name = NULL;
+  this->_grade = 150;
+  std::cout << "[Bureaucrat] Default cosntuctor called" std::endl;
+}
+
+Bureaucrat::Bureaucrat( std::string name, int grade )
+{
+  this->_grade = grade;
+  this->_name = name;
+  if ( this->_grade < 1 )
+    throw GradeTooHighException();
+  else if ( this->_grade > 150 )
+    throw GradeTooLowException();
+  std::cout << "[Bureaucrat] " << this->_name << " cosntuctor called" std::endl;
 }
 
 Bureaucrat::Bureaucrat( const Bureaucrat &B )
@@ -37,28 +49,31 @@ std::ostream    &Bureaucrat::operator<<( std::ostream &out, const Bureaucrat &B 
   return ( out );
 }
 
-int             Bureaucrat::GradeTooHighException( void )
+}
+void             increaseGrade( int n )
 {
-  try
-  {
-    this->_grade++;
-  }
-  catch ( std::exception & e )
-  {
-    std::cout << "GradeTooHigh" << std::endl;
-  }
+  if ( ( this->_grade - n ) < 1 )
+    return ;
+  this->_grade -= n;
 }
 
-int             Bureaucrat::GradeTooLowException( void )
+std::exception  Bureaucrat::GradeTooHighException( void )
 {
-  try
-  {
-    this->_grade--;
-  }
-  catch ( std::exception & e )
-  { 
-    std::cout << "GradeTooLow" << std::endl;
-  }
+  std::cout << "GradeTooHigh" << std::endl;
+  throw std::exception();
+}
+
+void             decreaseGrade( int n )
+{
+  if ( ( this->_grade + n ) > 150 )
+    return ;
+  this->_grade += n;
+}
+
+std::exception   Bureaucrat::GradeTooLowException( void )
+{
+  std::cout << "GradeTooLow" << std::endl;
+  throw std::exception();
 }
 
 std::string     Bureaucrat::getName( void )

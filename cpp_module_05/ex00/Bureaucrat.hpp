@@ -19,8 +19,10 @@ class   Bureaucrat
     std::ostream        &operator<<( std::ostream &out, const Bureaucrat &B );
     std::string         getName( void );
     int                 getGrade( void );
-    int                 GradeTooHighException( void );
-    int                 GradeTooLowException( void );
+    std::exception      GradeTooHighException( void );
+    std::exception      GradeTooLowException( void );
+    void                increaseGrade( int n );
+    void                decreaseGrade( int n );
 };
 
 #endif
