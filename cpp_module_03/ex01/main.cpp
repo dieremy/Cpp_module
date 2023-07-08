@@ -82,18 +82,19 @@ int	testTwo()
 int main(int ac, char **av)
 {
 	std::string	arg;
-	
-	if (ac != 2)
-		std::cout << "ERROR, to test put <test1> or <test2> as second argument " << std::endl;
-	else
-	{	
-		arg = av[1];
-		if (!arg.compare("test1"))
-			testOne();
-		else if (!arg.compare("test2"))
-			testTwo();
-		else
-			std::cout << "ERROR, to test put <test1> or <test2> as second argument" << std::endl;
-	}
+	(void)ac;
+	(void)av;
+	testTwo();
+	// if (ac != 2)
+	// 	std::cout << "ERROR, to test put <test1> or <test2> as second argument " << std::endl;
+	// else
+	// {	
+	// 	arg = av[1];
+	// 	if (!arg.compare("test1"))
+	// 		testOne();
+	// 	else if (!arg.compare("test2"))
+	// 	else
+	// 		std::cout << "ERROR, to test put <test1> or <test2> as second argument" << std::endl;
+	// }
 	return (0);
 }

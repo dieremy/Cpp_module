@@ -22,8 +22,8 @@ int	testOne()
 		}
 		f1.beRepaired(1);
 		f2.beRepaired(1);
-		f1.highFiveGuys();
-		f2.highFiveGuys();
+		f1.highFivesGuys();
+		f2.highFivesGuys();
 		std::cout << std::endl;
 	}
 	std::cout << "END-GAME\n" << std::endl;
@@ -43,17 +43,17 @@ int	testTwo()
 	f2.takeDamage(5);
 	f2.takeDamage(5);
 	f2.beRepaired(5);
-	f2.highFiveGuys();
+	f2.highFivesGuys();
 	f2.beRepaired(5);
 	f3.attack( f1.getName() );
 	f1.takeDamage(5);
-	f1.highFiveGuys();
+	f1.highFivesGuys();
 	f1.beRepaired(5);
 	f4.beRepaired(5);
 	f4.beRepaired(5);
 	f4.beRepaired(5);
 	f4.beRepaired(5);
-	f4.highFiveGuys();
+	f4.highFivesGuys();
 	f4.beRepaired(5);
 	f4.beRepaired(5);
 	std::cout << std::endl;
@@ -82,17 +82,19 @@ int main(int ac, char **av)
 {
 	std::string	arg;
 	
-	if (ac != 2)
-		std::cout << "ERROR, to test put <test1> or <test2> as second argument " << std::endl;
-	else
-	{	
-		arg = av[1];
-		if (!arg.compare("test1"))
-			testOne();
-		else if (!arg.compare("test2"))
-			testTwo();
-		else
-			std::cout << "ERROR, to test put <test1> or <test2> as second argument" << std::endl;
-	}
+	testTwo();
+	(void)ac;
+	(void)av;
+	// if (ac != 2)
+	// 	std::cout << "ERROR, to test put <test1> or <test2> as second argument " << std::endl;
+	// else
+	// {	
+	// 	arg = av[1];
+	// 	if (!arg.compare("test1"))
+	// 		testOne();
+	// 	else if (!arg.compare("test2"))
+	// 	else
+	// 		std::cout << "ERROR, to test put <test1> or <test2> as second argument" << std::endl;
+	// }
 	return (0);
 }

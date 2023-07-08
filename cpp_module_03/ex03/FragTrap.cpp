@@ -46,7 +46,7 @@ FragTrap	&FragTrap::operator=( const FragTrap &ft )
 
 
 /* METHODS */
-void		FragTrap::highFiveGuys( void )
+void		FragTrap::highFivesGuys( void )
 {
 	std::cout << "[FragTrap] " << this->_name \
 	<< " displays a positive high fives request on the standard input" << std::endl;
