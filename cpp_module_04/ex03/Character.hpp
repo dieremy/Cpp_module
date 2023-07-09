@@ -7,8 +7,9 @@
 class	Character : public ICharacter
 {
 	private:
-		std::string			_name;
-		//
+		std::string	_name;
+		AMateria	*_inventory[4];
+		int			_len;
 
 	public:
 		Character();
@@ -21,7 +22,7 @@ class	Character : public ICharacter
 		std::string const	&getName() const ;
 		void				use( int idx, ICharacter &target ) const ;
 		void				equip( AMateria *Am );
-		void				unequip( int idx ) const ;
+		void				unequip( int idx );
 };
 
 #endif

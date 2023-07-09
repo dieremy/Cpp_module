@@ -4,7 +4,7 @@ NAME = interface
 
 # FILES
 SRCS = main.cpp \
-	AMateria.cpp Character.cpp Cure.cpp ICharacter.cpp Ice.cpp IMateriaSource.cpp MateriaSource.cpp 
+	AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
 OBJS = ${SRCS:.cpp=.o}
 
 

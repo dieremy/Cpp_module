@@ -4,12 +4,14 @@
 /* ORTHODOX CANONICAL FORM */
 AMateria::AMateria()
 {
-	std::cout << "[AMateria] Default constructor called" << std::endl;
+	this->_type = "";
+	// std::cout << "[AMateria] Default constructor called" << std::endl;
+	return ;
 }
 
 AMateria::AMateria( AMateria const &Am )
 {
-	std::cout << "[AMateria] Copy constructor called" << std::endl;
+	// std::cout << "[AMateria] Copy constructor called" << std::endl;
 	*this = Am;
 }
 
@@ -20,7 +22,8 @@ AMateria::AMateria( std::string const &type )
 
 AMateria::~AMateria()
 {
-	std::cout << "[AMateria] Destructor called" << std::endl;
+	// std::cout << "[AMateria] Destructor called" << std::endl;
+	return ;
 }
 
 AMateria			&AMateria::operator=( AMateria const &Am )
@@ -47,4 +50,3 @@ void		AMateria::use( ICharacter &target )
 
 // AMateria	*AMateria::clone() const = 0
 // {}
-
