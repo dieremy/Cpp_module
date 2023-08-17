@@ -56,16 +56,6 @@ void			Bureaucrat::decreaseGrade( int n )
 	this->_grade += n;
 }
 
-const char		*Bureaucrat::GradeTooHighException::what() const throw()
-{
-    return ( "Grade is too high" );
-}
-
-const char		*Bureaucrat::GradeTooLowException::what() const throw()
-{
-    return ( "Grade is too low" );
-}
-
 std::string     Bureaucrat::getName( void ) const
 {
   return ( this->_name );

@@ -1,23 +1,37 @@
-#include "Form.hpp"
-#include "Bureaucrat.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "ShrubberyCreationForm.hpp"
+#include "Intern.hpp"
 
 int main()
 {
-    Bureaucrat b1("Bureaucrat1", 1);
-    Bureaucrat b150("Bureaucrat150", 150);
+    Intern	InternA;
+    Intern	InternB;
+    Intern	InternC;
+    Form*	a;
+    Form*	b;
+    Form*	c;
+    Form*	d;
 
-    ShrubberyCreationForm s1("Shrubbery1");
-    RobotomyRequestForm r1("Robotomy1");
-    PresidentialPardonForm p1("Presidential1");
+    std::cout << std::endl << "--------------------------------" << std::endl << std::endl;
 
-    s1.beSigned(b1);
-    r1.beSigned(b1);
-    p1.beSigned(b1);
+    a = InternA.makeForm("RobotomyRequestForm", "Pony");
+    std::cout << std::endl << "--------------------------------" << std::endl << std::endl;
+    b = InternB.makeForm("PresidentialPardonForm", "Barbie");
+    std::cout << std::endl << "--------------------------------" << std::endl << std::endl;
+    c = InternC.makeForm("ShrubberyCreationForm", "Terminator");
+        std::cout << std::endl << "--------------------------------" << std::endl << std::endl;
 
-    s1.execute(b1);
-    r1.execute(b1);
-    p1.execute(b1);
+    try 
+    {
+        d = InternC.makeForm("maybe tomorrow", "maybe yesterday");
+    }
+    catch (std::exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    
+    std::cout << std::endl << "--------------------------------" << std::endl << std::endl;
+
+    delete a;
+    delete b;
+    delete c;
+    return (0);
 }

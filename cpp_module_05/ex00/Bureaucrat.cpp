@@ -49,23 +49,11 @@ void			Bureaucrat::increaseGrade( int n )
 	this->_grade -= n;
 }
 
-std::exception  Bureaucrat::GradeTooHighException( void )
-{
-	std::cout << "GradeTooHigh" << std::endl;
-	throw std::exception();
-}
-
 void			Bureaucrat::decreaseGrade( int n )
 {
 	if ( ( this->_grade + n ) > 150 )
 		throw GradeTooLowException();
 	this->_grade += n;
-}
-
-std::exception	Bureaucrat::GradeTooLowException( void )
-{
-	std::cout << "GradeTooLow" << std::endl;
-	throw std::exception();
 }
 
 std::string     Bureaucrat::getName( void ) const
