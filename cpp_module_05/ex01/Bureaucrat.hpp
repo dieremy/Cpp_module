@@ -24,10 +24,19 @@ class   Bureaucrat
 		int                 getGrade( void ) const ;
 		void                increaseGrade( int n );
 		void                decreaseGrade( int n );
-		std::exception      GradeTooHighException( void );
-		std::exception      GradeTooLowException( void );
-
 		void				signForm( Form &F );
+
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				const char *what() const throw();
+		};
+
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				const char *what() const throw();
+		};
 };
 
 std::ostream        &operator<<( std::ostream &out, const Bureaucrat &B );

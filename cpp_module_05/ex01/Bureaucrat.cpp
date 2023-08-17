@@ -49,12 +49,6 @@ void			Bureaucrat::increaseGrade( int n )
 	this->_grade -= n;
 }
 
-std::exception  Bureaucrat::GradeTooHighException( void )
-{
-	std::cout << "GradeTooHigh" << std::endl;
-	throw std::exception();
-}
-
 void			Bureaucrat::decreaseGrade( int n )
 {
 	if ( ( this->_grade + n ) > 150 )
@@ -62,10 +56,14 @@ void			Bureaucrat::decreaseGrade( int n )
 	this->_grade += n;
 }
 
-std::exception	Bureaucrat::GradeTooLowException( void )
+const char		*Bureaucrat::GradeTooHighException::what() const throw()
 {
-	std::cout << "GradeTooLow" << std::endl;
-	throw std::exception();
+    return ( "Grade is too high" );
+}
+
+const char		*Bureaucrat::GradeTooLowException::what() const throw()
+{
+    return ( "Grade is too low" );
 }
 
 std::string     Bureaucrat::getName( void ) const
@@ -78,11 +76,23 @@ int             Bureaucrat::getGrade( void ) const
   return ( this->_grade );
 }
 
-void			Bureaucrat::signForm( Form &F )
+void Bureaucrat::signForm(Form &form)
 {
-	if (F.beSigned(*this))
-		std::cout << "<bureaucrat> signed <form>" << std::endl;
-	else if (!F.beSigned(*this))
-		std::cout << "<bureaucrat> couldn't sign <form> because of a headache" << std::endl;
+    try
+    {
+        form.beSigned(*this);
+        std::cout << this->_name << " signed " << form.getName() << std::endl;
+    }
+    catch (const Form::GradeTooHighException &e)
+    {
+        std::cout << this->_name << " couldn't sign " << form.getName() << " because: " << e.what() << std::endl;
+    }
+    catch (const Form::GradeTooLowException &e)
+    {
+        std::cout << this->_name << " couldn't sign " << form.getName() << " because: " << e.what() << std::endl;
+    }
+    catch (const std::exception &e)
+    {
+        std::cout << this->_name << " couldn't sign " << form.getName() << " due to an unknown error." << std::endl;
+    }
 }
-
