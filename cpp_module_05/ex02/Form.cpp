@@ -35,7 +35,7 @@ Form				&Form::operator=( const Form &F )
 
 void				Form::beSigned( Bureaucrat &B )
 {
-	if (B.getGrade() < this->getGradeMinSign())
+	if (B.getGrade() < 1)
 		throw (GradeTooHighException());
 	else if (B.getGrade() > this->getGradeMinSign())
 		throw (GradeTooLowException());
@@ -73,7 +73,16 @@ const char			*Form::GradeTooLowException::what() const throw()
     return ( "Grade is too low" );
 }
 
-std::ostream	&operator<<( std::ostream &out, const Form &form )
+void				Form::execute( Bureaucrat const &executor ) const
+{
+	if (executor.getGrade() > _gradeToExec)
+        throw Form::GradeTooLowException();
+    else if (!_isSigned)
+        throw Form::GradeTooLowException();
+	executor.executeForm(*this);
+}
+
+std::ostream		&operator<<( std::ostream &out, const Form &form )
 {
 	out << std::endl;
 	out << "----------------------------------------" << std::endl;

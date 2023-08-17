@@ -73,7 +73,7 @@ const char			*Form::GradeTooLowException::what() const throw()
     return ( "Grade is too low" );
 }
 
-std::ostream	&operator<<( std::ostream &out, const Form &form )
+std::ostream		&operator<<( std::ostream &out, const Form &form )
 {
 	out << std::endl;
 	out << "----------------------------------------" << std::endl;

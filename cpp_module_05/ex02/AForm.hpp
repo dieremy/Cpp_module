@@ -23,6 +23,7 @@ class	AForm
 		virtual bool				getIsSigned( void ) const = 0;
 		virtual int                 getGradeMinSign( void ) const = 0;
 		virtual int                 getGradeToExec( void ) const = 0;
+        virtual void				execute( Bureaucrat const &executor ) const = 0;
 };
 
 #endif

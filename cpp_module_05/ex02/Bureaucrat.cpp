@@ -76,7 +76,7 @@ int             Bureaucrat::getGrade( void ) const
   return ( this->_grade );
 }
 
-void Bureaucrat::signForm(Form &form)
+void			Bureaucrat::signForm(Form &form)
 {
     try
     {
@@ -95,4 +95,9 @@ void Bureaucrat::signForm(Form &form)
     {
         std::cout << this->_name << " couldn't sign " << form.getName() << " due to an unknown error." << std::endl;
     }
+}
+
+void				Bureaucrat::executeForm( Form const & form ) const
+{
+	std::cout << this->_name << " executed " << form.getName() << std::endl;
 }

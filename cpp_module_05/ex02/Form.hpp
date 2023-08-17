@@ -28,6 +28,7 @@ class	Form : public AForm
 		bool				getIsSigned( void ) const;
 		int                 getGradeMinSign( void ) const;
 		int                 getGradeToExec( void ) const;
+        void				execute(Bureaucrat const &executor) const;
 		
 		class GradeTooHighException : public std::exception
         {
