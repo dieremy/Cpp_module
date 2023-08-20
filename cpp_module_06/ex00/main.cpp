@@ -2,7 +2,6 @@
 
 int	main(int ac, char *av[])
 {
-	std::string	input;
 	if (ac != 2)
 	{
 		std::cout << "Number of arguments not valid." << std::endl;

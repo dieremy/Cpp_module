@@ -16,15 +16,10 @@ class ScalarConverter
 		ScalarConverter( const ScalarConverter &Converter );
 		~ScalarConverter();
 
-		// static char		getChar( void );
-		// static int		getInt( void );
-		// static float	getFloat( void );
-		// static double	getDouble( void );
-
 		std::string		converterChar() const;
-		std::string		converterInt( void );
-		std::string		converterFloat( void );
-		std::string		converterDouble( void );
+		std::string		converterInt( void ) const;
+		std::string		converterFloat( void ) const;
+		std::string		converterDouble( void ) const;
 
 		ScalarConverter	&operator=( const ScalarConverter &Converter );
 };

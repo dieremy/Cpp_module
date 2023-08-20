@@ -21,47 +21,105 @@ ScalarConverter::~ScalarConverter()
 	return ;
 }
 
-// char			ScalarConverter::getChar( void )
-// {}
-
-// int				ScalarConverter::getInt( void )
-// {}
-
-// float			ScalarConverter::getFloat( void )
-// {}
-
-// double			ScalarConverter::getDouble( void )
-// {}
-
 std::string		ScalarConverter::converterChar() const
 {
 	char array[_input.length() + 1]; 
-	std::string imp_string = "impossible";
 	int	check;
 
 	strcpy(array, _input.c_str());	
-	check = atoi(array);
-	if (check <= 32 || check >= 126)
-		return ("0");
+	if (array[0] == 'n' && array[1] == 'a' && array[2] == 'n')
+		return ("impossible");
+	if ((array[0] == '+' || array[0] == '-') && array[1] == 'i' && array[2] == 'n' && array[3] == 'f')
+		return ("impossible");
+	if ((array[0] == '+' || array[0] == '-') && array[1] == 'i' && array[2] == 'n' && array[3] == 'f' && array[4] == 'f')
+		return ("impossible");
 
-	if (array[0] == 'n' && array[1] == 'a' && array[2] == 'n' && array[2] == '\0')
-		return (imp_string);
-	if ((array[0] == '+' || array[0] == '-') && array[1] == 'i' && array[2] == 'n' && array[2] == 'f' && array[3] == '\0')
-		return (imp_string);
-	if ((array[0] == '+' || array[0] == '-') && array[1] == 'i' && array[2] == 'n' && array[2] == 'f' && array[3] == 'f' && array[4] == '\0')
-		return (imp_string);
-	
-	return (static_cast<std::string>(_input));
+	check = std::atoi(array);
+	if (check <= 32 || check >= 126)
+		return ("Non displayable");
+
+	char s[4] = {'\'', static_cast<char>(check), '\'', '\0'};
+	return (s);
 }
 
-std::string		ScalarConverter::converterInt( void )
-{}
+std::string		ScalarConverter::converterInt( void ) const
+{
+	char	array[_input.length() + 1]; 
+	int		i;
+	
+	i = 0;
+	while (i < _input.length())
+	{
+		if (_input[i] == '.')
+			break ;
+		array[i] = _input[i];
+		i++;
+	}
+	array[i] = 0;
 
-std::string		ScalarConverter::converterFloat( void )
-{}
+	if (array[0] == 'n' && array[1] == 'a' && array[2] == 'n')
+		return ("impossible");
+	if ((array[0] == '+' || array[0] == '-') && array[1] == 'i' && array[2] == 'n' && array[3] == 'f')
+		return ("impossible");
+	if ((array[0] == '+' || array[0] == '-') && array[1] == 'i' && array[2] == 'n' && array[3] == 'f' && array[4] == 'f')
+		return ("impossible");
 
-std::string		ScalarConverter::converterDouble( void )
-{}
+	return (array);
+}
+
+std::string		ScalarConverter::converterFloat( void ) const
+{
+	char	array[_input.length() + 4];
+	int		i;
+	
+	i = 0;
+	while (i < _input.length())
+	{
+		if (_input[i] == '.')
+			break ;
+		array[i] = _input[i];
+		i++;
+	}
+	array[i] = 0;
+
+	if (array[0] == 'n' && array[1] == 'a' && array[2] == 'n')
+		return ("nanf");
+	if ((array[0] == '+' || array[0] == '-') && array[1] == 'i' && array[2] == 'n' && array[3] == 'f')
+		return ("impossible");
+	if ((array[0] == '+' || array[0] == '-') && array[1] == 'i' && array[2] == 'n' && array[3] == 'f' && array[4] == 'f')
+		return ("impossible");
+	
+	strcat(array, ".0f\0");
+	return (array);
+}
+
+std::string		ScalarConverter::converterDouble( void ) const
+{
+	char	array[_input.length() + 3];
+	int		check;
+
+	int		i;
+	
+	i = 0;
+	while (i < _input.length())
+	{
+		if (_input[i] == '.')
+			break ;
+		array[i] = _input[i];
+		i++;
+	}
+	array[i] = 0;
+
+	if (array[0] == 'n' && array[1] == 'a' && array[2] == 'n')
+		return ("nan");
+	if ((array[0] == '+' || array[0] == '-') && array[1] == 'i' && array[2] == 'n' && array[3] == 'f')
+		return ("impossible");
+	if ((array[0] == '+' || array[0] == '-') && array[1] == 'i' && array[2] == 'n' && array[3] == 'f' && array[4] == 'f')
+		return ("impossible");
+
+	strcat(array, ".0\0");
+	return (array);
+}
 
 ScalarConverter	&ScalarConverter::operator=( const ScalarConverter &Converter )
 {
@@ -72,6 +130,9 @@ ScalarConverter	&ScalarConverter::operator=( const ScalarConverter &Converter )
 
 std::ostream	&operator<<( std::ostream &out, const ScalarConverter &Converter )
 {
-	out << Converter.converterChar();
+	out << "char: " << Converter.converterChar() << std::endl;
+	out << "int: " << Converter.converterInt() << std::endl;
+	out << "float: " << Converter.converterFloat() << std::endl;
+	out << "double: " << Converter.converterDouble();
 	return (out);
 }
