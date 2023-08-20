@@ -1,9 +1,9 @@
 #PROGRAM
-NAME = bureaucrat
+NAME = serialize
 
 #FILES
 SRCS= main.cpp \
-	  Bureaucrat.cpp
+	  Serialize.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 
