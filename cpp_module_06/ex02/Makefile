@@ -1,9 +1,8 @@
 #PROGRAM
-NAME = bureaucrat
+NAME = realtype
 
 #FILES
-SRCS= main.cpp \
-	  Bureaucrat.cpp
+SRCS= main.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 
@@ -20,23 +19,23 @@ NONE = \033[0m
 #RULEZ
 %.o : %.cpp
 	@${CC} ${FLAG} -c $< -o $@
-	@echo "${VIOLET}WIP...${NONE}"
+	@echo "WIP..."
 
 ${NAME} : ${OBJS}
 	@${CC} ${FLAG} ${OBJS} -o ${NAME}
 	@make clean
 	@clear
-	@echo "${CYAN}./${NAME} created${NONE}"
+	@echo "./${NAME} created"
 
 all : ${NAME}
 
 clean :
 	@rm -rf ${OBJS}
-	@echo "${VIOLET}OBJS deleted${NONE}"
+	@echo "OBJS deleted"
 
 fclean : clean
 	@rm -rf ${NAME}
-	@echo "${CYAN}./${NAME} deleted${NONE}"
+	@echo "./${NAME} deleted"
 
 re : fclean all clean
 
