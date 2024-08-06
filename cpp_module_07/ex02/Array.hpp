@@ -34,17 +34,17 @@ public:
 			this->~Array();
 			this->len = arr.len;
 			this->a = new T[arr.len];
-			for (unsigned int x = 0; x < arr.len; x++) {
-				this->_a[x] = arr._a[x];
+			for (unsigned int i = 0; i < arr.len; i++) {
+				this->a[i] = arr.a[i];
 			}
 		}
 		return *this;
 	}
 
-	T &operator[](unsigned int i) {
-		if (i >= this->len)
+	T &operator[](unsigned int n) {
+		if (n >= this->len)
 			throw OutOfBoundsException();
-		return this->a[i];
+		return this->a[n];
 	}
 
 	unsigned int size() {
