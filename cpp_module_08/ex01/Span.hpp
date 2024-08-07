@@ -8,16 +8,32 @@
 #include <vector>
 #include <iostream>
 
-template<typename T>
-void easyfind(const T array, int v) {
+class Span {
+private:
+	uint8_t size;
+	std::vector<int> array;
 
-	for (size_t i = 0; i < array.size(); i++) {
-		if (array[i] == v) {
-			std::cout << "Found integer: " << v << std::endl;
-			return;
+public:
+	uint8_t getSize();
+
+	void addNumber(int num);
+
+	int shortestSpan();
+
+	int longestSpan();
+
+	Span(int len);
+
+	Span();
+
+	~Span();
+
+	class ArrayException : std::exception {
+	public:
+		const char *what() const throw() {
+			return ("Array is full.");
 		}
-	}
-	std::cout << "Integer " << v << " not found" << std::endl;
-}
+	};
+};
 
 #endif //SPAN_HPP
