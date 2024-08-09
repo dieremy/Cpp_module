@@ -34,6 +34,13 @@ public:
 			return ("Array is full.");
 		}
 	};
+
+	class EmptyArrayException : std::exception {
+	public:
+		const char *what() const throw() {
+			return ("Array is empty.");
+		}
+	};
 };
 
 #endif //SPAN_HPP

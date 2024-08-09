@@ -1,4 +1,6 @@
 #include "Span.hpp"
+#include <stdio.h>
+#include <cstdlib>
 
 void Span::addNumber(int num) {
 	if (this->array.size() >= this->getSize()) {
@@ -8,22 +10,30 @@ void Span::addNumber(int num) {
 }
 
 int Span::shortestSpan() {
-	int shortest = -1;
+	if (this->array.empty())
+		throw EmptyArrayException();
 
-	for (std::vector<int>::iterator elem = this->array.begin(); elem != this->array.end(); elem++) {
-		if (shortest <= (*elem - (*elem + 1))) {
-			shortest = *elem - (*elem + 1);
+	int shortest = abs(this->array.at(0) - this->array.at(1));
+
+	for (std::vector<int>::iterator elem = this->array.begin() + 1; elem != this->array.end(); elem++) {
+		uint8_t diff = abs(*elem - *std::next(elem));
+		if (std::next(elem) != array.end() && shortest >= diff) {
+			shortest = diff;
 		}
 	}
 	return shortest;
 }
 
 int Span::longestSpan() {
-	int longest = -1;
+	if (this->array.empty())
+		throw EmptyArrayException();
 
-	for (std::vector<int>::iterator elem = this->array.begin(); elem != this->array.end(); elem++) {
-		if (longest >= (*elem - (*elem + 1))) {
-			longest = *elem - (*elem + 1);
+	int longest = abs(this->array.at(0) - this->array.at(1));
+
+	for (std::vector<int>::iterator elem = this->array.begin() + 1; elem != this->array.end(); elem++) {
+		uint8_t diff = abs(*elem - *std::next(elem));
+		if (std::next(elem) != array.end() && longest <= diff) {
+			longest = diff;
 		}
 	}
 	return longest;
