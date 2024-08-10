@@ -1,23 +1,21 @@
 #include "Span.hpp"
-#include <stdio.h>
-#include <cstdlib>
 
 void Span::addNumber(int num) {
-	if (this->array.size() >= this->getSize()) {
-		throw ArrayException();
+	if (this->vector.size() >= this->getSize()) {
+		throw VectorException();
 	}
-	this->array.push_back(num);
+	this->vector.push_back(num);
 }
 
 int Span::shortestSpan() {
-	if (this->array.empty())
-		throw EmptyArrayException();
+	if (this->vector.empty())
+		throw EmptyVectorException();
 
-	int shortest = abs(this->array.at(0) - this->array.at(1));
+	uint16_t shortest = abs(this->vector.at(0) - this->vector.at(1));
 
-	for (std::vector<int>::iterator elem = this->array.begin() + 1; elem != this->array.end(); elem++) {
-		uint8_t diff = abs(*elem - *std::next(elem));
-		if (std::next(elem) != array.end() && shortest >= diff) {
+	for (std::vector<int>::iterator elem = this->vector.begin() + 1; elem != this->vector.end(); elem++) {
+		uint16_t diff = abs(*elem - *std::next(elem));
+		if (std::next(elem) != vector.end() && shortest >= diff) {
 			shortest = diff;
 		}
 	}
@@ -25,14 +23,14 @@ int Span::shortestSpan() {
 }
 
 int Span::longestSpan() {
-	if (this->array.empty())
-		throw EmptyArrayException();
+	if (this->vector.empty())
+		throw EmptyVectorException();
 
-	int longest = abs(this->array.at(0) - this->array.at(1));
+	uint16_t longest = abs(this->vector.at(0) - this->vector.at(1));
 
-	for (std::vector<int>::iterator elem = this->array.begin() + 1; elem != this->array.end(); elem++) {
-		uint8_t diff = abs(*elem - *std::next(elem));
-		if (std::next(elem) != array.end() && longest <= diff) {
+	for (std::vector<int>::iterator elem = this->vector.begin() + 1; elem != this->vector.end(); elem++) {
+		uint16_t diff = abs(*elem - *std::next(elem));
+		if (std::next(elem) != vector.end() && longest <= diff) {
 			longest = diff;
 		}
 	}
@@ -40,6 +38,16 @@ int Span::longestSpan() {
 }
 
 uint8_t Span::getSize() { return this->size; }
+
+void Span::setVector(const std::vector<int> oldVec) {
+	this->vector.erase(this->vector.begin(), this->vector.end());
+
+	for (std::vector<int>::const_iterator it = oldVec.begin(); it != oldVec.end(); it++) {
+		this->vector.push_back(*it);
+	}
+}
+
+std::vector<int> Span::getVector() { return this->vector; }
 
 Span::Span(int len) : size(len) {}
 

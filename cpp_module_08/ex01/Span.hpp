@@ -7,14 +7,22 @@
 
 #include <vector>
 #include <iostream>
+#include <cstdlib>
+# include <numeric>
+# include <algorithm>
+
 
 class Span {
 private:
 	uint8_t size;
-	std::vector<int> array;
+	std::vector<int> vector;
 
 public:
 	uint8_t getSize();
+
+	void setVector(std::vector<int> vec);
+
+	std::vector<int> getVector();
 
 	void addNumber(int num);
 
@@ -28,17 +36,17 @@ public:
 
 	~Span();
 
-	class ArrayException : std::exception {
+	class VectorException : std::exception {
 	public:
 		const char *what() const throw() {
-			return ("Array is full.");
+			return ("Vector is full.");
 		}
 	};
 
-	class EmptyArrayException : std::exception {
+	class EmptyVectorException : std::exception {
 	public:
 		const char *what() const throw() {
-			return ("Array is empty.");
+			return ("Vector is empty.");
 		}
 	};
 };
