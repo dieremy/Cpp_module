@@ -1,13 +1,5 @@
 #include "Span.hpp"
 
-void printDebug(std::vector<int> vec, int flag) {
-	if (flag != 1) return ;
-
-	for (std::vector<int>::iterator it = vec.begin(); it != vec.end(); it++)
-		std::cout << *it << " ";
-	std::cout << std::endl;
-}
-
 int main() {
 	Span sp = Span(5);
 	try {
@@ -44,7 +36,7 @@ int main() {
 
 	try {
 		sp.setVector(vec);
-		printDebug(sp.getVector(), 1);
+		sp.printDebug(1);
 	} catch (const Span::VectorException &e) {
 		std::cerr << e.what() << std::endl;
 	}

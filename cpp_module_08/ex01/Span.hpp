@@ -8,9 +8,6 @@
 #include <vector>
 #include <iostream>
 #include <cstdlib>
-# include <numeric>
-# include <algorithm>
-
 
 class Span {
 private:
@@ -35,6 +32,13 @@ public:
 	Span();
 
 	~Span();
+
+	void printDebug(int flag) {
+		if (flag != 1) return;
+
+		for (size_t i = 0; i < this->vector.size(); i++) std::cout << i << " ";
+		std::cout << std::endl;
+	}
 
 	class VectorException : std::exception {
 	public:

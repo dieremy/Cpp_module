@@ -33,7 +33,7 @@ uint16_t Span::longestSpan() {
 	return longest;
 }
 
-uint8_t Span::getSize() { return this->size; }
+uint16_t Span::getSize() { return this->size; }
 
 void Span::setVector(const std::vector<int> oldVec) {
 	this->vector.erase(this->vector.begin(), this->vector.end());
