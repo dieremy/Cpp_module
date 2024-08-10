@@ -7,7 +7,7 @@ void Span::addNumber(int num) {
 	this->vector.push_back(num);
 }
 
-int Span::shortestSpan() {
+uint16_t Span::shortestSpan() {
 	if (this->vector.empty())
 		throw EmptyVectorException();
 
@@ -15,14 +15,12 @@ int Span::shortestSpan() {
 
 	for (std::vector<int>::iterator elem = this->vector.begin() + 1; elem != this->vector.end(); elem++) {
 		uint16_t diff = abs(*elem - *std::next(elem));
-		if (std::next(elem) != vector.end() && shortest >= diff) {
-			shortest = diff;
-		}
+		if (std::next(elem) != vector.end() && shortest >= diff) shortest = diff;
 	}
 	return shortest;
 }
 
-int Span::longestSpan() {
+uint16_t Span::longestSpan() {
 	if (this->vector.empty())
 		throw EmptyVectorException();
 
@@ -30,9 +28,7 @@ int Span::longestSpan() {
 
 	for (std::vector<int>::iterator elem = this->vector.begin() + 1; elem != this->vector.end(); elem++) {
 		uint16_t diff = abs(*elem - *std::next(elem));
-		if (std::next(elem) != vector.end() && longest <= diff) {
-			longest = diff;
-		}
+		if (std::next(elem) != vector.end() && longest <= diff) longest = diff;
 	}
 	return longest;
 }

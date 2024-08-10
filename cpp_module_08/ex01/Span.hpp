@@ -14,11 +14,11 @@
 
 class Span {
 private:
-	uint8_t size;
+	uint16_t size;
 	std::vector<int> vector;
 
 public:
-	uint8_t getSize();
+	uint16_t getSize();
 
 	void setVector(std::vector<int> vec);
 
@@ -26,9 +26,9 @@ public:
 
 	void addNumber(int num);
 
-	int shortestSpan();
+	uint16_t shortestSpan();
 
-	int longestSpan();
+	uint16_t longestSpan();
 
 	Span(int len);
 
