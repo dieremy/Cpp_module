@@ -1,9 +1,9 @@
 #PROGRAM
-NAME = btc
+NAME = RPN
 
 #FILES
-SRCS= main.cpp \
-	BitcoinExchange.cpp
+SRCS = main.cpp \
+	Rpn.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 
@@ -20,7 +20,7 @@ NONE = \033[0m
 #RULEZ
 %.o : %.cpp
 	@${CC} ${FLAG} -c $< -o $@
-	@echo "WIP...${NONE}"
+	@echo "WIP..."
 
 ${NAME} : ${OBJS}
 	@${CC} ${FLAG} ${OBJS} -o ${NAME}
