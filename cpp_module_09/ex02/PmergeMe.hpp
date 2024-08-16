@@ -19,9 +19,11 @@ class PmergeMe {
 private:
 	std::list<int> _list;
 	std::deque<int> _deque;
-	char **_args;
+	char **_argv;
 public:
-	PmergeMe(char **args);
+	PmergeMe(char **argv) {
+		this->_argv = argv;
+	}
 
 	PmergeMe() {};
 
@@ -41,7 +43,7 @@ public:
 class InvalidInputError : public std::exception {
 public:
 	const char *what() const throw() {
-		return "Invalid input.";
+		return "Error";
 	}
 };
 

@@ -6,35 +6,28 @@
 
 
 static int ft_atoi(const char *str) {
-	int sign = 1, res = 0;
+	int res = 0;
 
 	while (*str == 32 || (*str >= 9 && *str <= 13)) str++;
-	if (*str == '+' || *str == '-') {
-		if (*str == '-') sign = -1;
-		str++;
-	}
+	if (*str == '+') str++;
+	if (*str == '-') throw InvalidInputError();
+
 	while (*str) {
 		if (!std::isdigit(*str)) throw InvalidInputError();
 		if (res > INT_MAX / 10 || (res == INT_MAX / 10 && *str - '0' > INT_MAX % 10)) throw InvalidInputError();
 		res = res * 10 + (*str++ - '0');
 	}
-	return (res * sign);
+	return res;
 }
-
-PmergeMe::PmergeMe(char **args) {
-	this->_args = args;
-}
-
-#include <stdio.h>
 
 void PmergeMe::parseInput() {
 	try {
-		for (size_t i = 1; this->_args[i]; i++) {
-			this->_list.push_back(ft_atoi(this->_args[i]));
-			this->_deque.push_back(ft_atoi(this->_args[i]));
+		for (size_t i = 1; this->_argv[i]; i++) {
+			this->_list.push_back(ft_atoi(this->_argv[i]));
+			this->_deque.push_back(ft_atoi(this->_argv[i]));
 		}
 	} catch (const InvalidInputError &e) {
-		std::cerr << "Error: " << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 		std::exit(2);
 	}
 }
