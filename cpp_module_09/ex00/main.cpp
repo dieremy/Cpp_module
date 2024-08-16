@@ -7,7 +7,12 @@ int main(int ac, char *av[]) {
 	}
 
 	if (access(av[1], F_OK) != 0) {
-		std::cout << "Error: could not open file." << std::endl;
+		std::cout << "Error: could not open file " << av[1] << std::endl;
+		return 2;
+	}
+	
+	if (access("data.csv", F_OK) != 0) {
+		std::cout << "Error: could not open file data.csv" << std::endl;
 		return 2;
 	}
 

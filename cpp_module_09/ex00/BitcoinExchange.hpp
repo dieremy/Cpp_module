@@ -28,8 +28,6 @@ private:
 	float _multiplier;
 public:
 
-	void printDebug();
-
 	float findDate();
 
 	bool validFormat(std::string line);
