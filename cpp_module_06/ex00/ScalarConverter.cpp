@@ -1,135 +1,117 @@
 #include "ScalarConverter.hpp"
 
-ScalarConverter::ScalarConverter() : _input("")
-{
-	return ;
+
+static bool isDigitString(const std::string &str) {
+	std::stringstream ss(str);
+	int num;
+
+	if (ss >> num && ss.eof()) return true;
+	return false;
 }
 
-ScalarConverter::ScalarConverter( std::string input ) : _input(input)
-{
-	return ;
+int ScalarConverter::compareInput(std::string arg = "default") const {
+	if (arg == "decimals" && this->_input[0] == 'n' && this->_input[1] == 'a' && this->_input[2] == 'n' &&
+		this->_input[3] == 0)
+		return 2;
+
+	return ((this->_input[0] == 'n' && this->_input[1] == 'a' && this->_input[2] == 'n' && this->_input[3] == 0) ||
+//			(this->_input[0] == 'n' && this->_input[1] == 'a' && this->_input[2] == 'n' && this->_input[3] == 'f' &&
+//			 this->_input[4] == 0) ||
+			(this->_input[0] == 'i' && this->_input[1] == 'n' && this->_input[2] == 'f' && this->_input[3] == 0) ||
+			(this->_input[0] == '+' && this->_input[1] == 'i' && this->_input[2] == 'n' && this->_input[3] == 'f' &&
+			 this->_input[4] == 0) ||
+			(this->_input[0] == '-' && this->_input[1] == 'i' && this->_input[2] == 'n' && this->_input[3] == 'f' &&
+			 this->_input[4] == 0)) ? 0 : 1;
 }
 
-ScalarConverter::ScalarConverter( const ScalarConverter &Converter )
-{
-	*this = Converter;
-	return ;
+std::string ScalarConverter::sanitizeDecimals(std::string nan, std::string last) const {
+	int check = this->compareInput("decimals");
+	size_t pos = this->_input.find('.');
+
+	if (pos != std::string::npos) {
+		if (this->_input.at(this->_input.length() - 1) == '.') {
+			return this->_input.substr(0, this->_input.find_first_of('.')) + last;
+		} else if (last[0] == '.' && last[1] == '0' && last[2] == 'f' && std::isdigit(this->_input.at(this->_input.find('.')))) {
+			return this->_input.substr(0, this->_input.find_first_of('.') + 2) + "f";
+		} else if (last[0] == '.' && last[1] == '0' && last[2] == 'f' && !std::isdigit(this->_input.at(this->_input.find('.')))) {
+			return this->_input.substr(0, this->_input.find_first_of('.') + 1) + "0f";
+		} else if (std::isdigit(this->_input.at(this->_input.find('.')))) {
+			return this->_input.substr(0, this->_input.find_first_of('.') + 2);
+		} else if (!std::isdigit(this->_input.at(this->_input.find('.')))) {
+			return this->_input.substr(0, this->_input.find_first_of('.') + 1) + "0";
+		}
+	}
+
+	switch (check) {
+		case 0:
+			if (last[0] == '.' && last[1] == '0' && last[2] == 'f')
+				return this->_input + "f";
+			return this->_input;
+		case 1:
+			if (isDigitString(this->_input)) {
+				return this->_input + last;
+			} else if (!isDigitString(this->_input) && this->_input.length() == 1) {
+				return std::to_string(static_cast<int>(*this->_input.c_str())) + last;
+			} else {
+				return "impossible";
+			}
+		case 2:
+			return nan;
+		default:
+			break;
+	}
+
+	return "error";
 }
 
-ScalarConverter::~ScalarConverter()
-{
-	return ;
-}
+std::string ScalarConverter::converterChar() const {
+	if (this->compareInput() == 0)
+		return "impossible";
 
-std::string		ScalarConverter::converterChar() const
-{
-	char array[_input.length() + 1]; 
-	int	check;
+	std::string temp = this->_input.substr(0, this->_input.find_first_of('.'));
 
-	strcpy(array, _input.c_str());	
-	if (array[0] == 'n' && array[1] == 'a' && array[2] == 'n')
-		return ("impossible");
-	if ((array[0] == '+' || array[0] == '-') && array[1] == 'i' && array[2] == 'n' && array[3] == 'f')
-		return ("impossible");
-	if ((array[0] == '+' || array[0] == '-') && array[1] == 'i' && array[2] == 'n' && array[3] == 'f' && array[4] == 'f')
-		return ("impossible");
+	if (temp.length() == 1 && !isDigitString(temp)) {
+		return '\'' + temp + '\'';
+	} else if (temp.length() > 1 && !isDigitString(temp)) {
+		return "impossible";
+	}
 
-	check = std::atoi(array);
-	if (check <= 32 || check >= 126)
+	int check = std::atoi(temp.c_str());
+	if (check < 0)
+		return "impossible";
+	else if (check >= 32 && check <= 126) {
+		char s[4] = {'\'', static_cast<char>(check), '\'', '\0'};
+		return (s);
+	} else {
 		return ("Non displayable");
-
-	char s[4] = {'\'', static_cast<char>(check), '\'', '\0'};
-	return (s);
-}
-
-std::string		ScalarConverter::converterInt( void ) const
-{
-	char	array[_input.length() + 1]; 
-	int		i;
-	
-	i = 0;
-	while (i < _input.length())
-	{
-		if (_input[i] == '.')
-			break ;
-		array[i] = _input[i];
-		i++;
 	}
-	array[i] = 0;
-
-	if (array[0] == 'n' && array[1] == 'a' && array[2] == 'n')
-		return ("impossible");
-	if ((array[0] == '+' || array[0] == '-') && array[1] == 'i' && array[2] == 'n' && array[3] == 'f')
-		return ("impossible");
-	if ((array[0] == '+' || array[0] == '-') && array[1] == 'i' && array[2] == 'n' && array[3] == 'f' && array[4] == 'f')
-		return ("impossible");
-
-	return (array);
 }
 
-std::string		ScalarConverter::converterFloat( void ) const
-{
-	char	array[_input.length() + 4];
-	int		i;
-	
-	i = 0;
-	while (i < _input.length())
-	{
-		if (_input[i] == '.')
-			break ;
-		array[i] = _input[i];
-		i++;
+std::string ScalarConverter::converterInt(void) const {
+	if (this->compareInput() == 0)
+		return ("impossible");
+
+	std::string temp = this->_input.substr(0, this->_input.find_first_of('.'));
+	if (temp[0] == '-' && temp[1] == '0')
+		temp.erase(temp.begin() + 0);
+
+	if (temp.length() == 1 && std::isalpha(*temp.c_str())) {
+		return std::to_string(static_cast<int>(*temp.c_str()));
+	} else if (!isDigitString(this->_input) && this->_input.length() == 1) {
+		return std::to_string(static_cast<int>(*this->_input.c_str()));
+	} else if (temp.length() > 1 && !isDigitString(temp)) {
+		return "impossible";
 	}
-	array[i] = 0;
 
-	if (array[0] == 'n' && array[1] == 'a' && array[2] == 'n')
-		return ("nanf");
-	if ((array[0] == '+' || array[0] == '-') && array[1] == 'i' && array[2] == 'n' && array[3] == 'f')
-		return ("impossible");
-	if ((array[0] == '+' || array[0] == '-') && array[1] == 'i' && array[2] == 'n' && array[3] == 'f' && array[4] == 'f')
-		return ("impossible");
-	
-	strcat(array, ".0f\0");
-	return (array);
+//	printf("diocane\n");
+	return temp;
 }
 
-std::string		ScalarConverter::converterDouble( void ) const
-{
-	char	array[_input.length() + 3];
-	int		check;
+std::string ScalarConverter::converterFloat(void) const { return this->sanitizeDecimals("nanf", ".0f"); }
 
-	int		i;
-	
-	i = 0;
-	while (i < _input.length())
-	{
-		if (_input[i] == '.')
-			break ;
-		array[i] = _input[i];
-		i++;
-	}
-	array[i] = 0;
+std::string ScalarConverter::converterDouble(void) const { return this->sanitizeDecimals("nan", ".0"); }
 
-	if (array[0] == 'n' && array[1] == 'a' && array[2] == 'n')
-		return ("nan");
-	if ((array[0] == '+' || array[0] == '-') && array[1] == 'i' && array[2] == 'n' && array[3] == 'f')
-		return ("impossible");
-	if ((array[0] == '+' || array[0] == '-') && array[1] == 'i' && array[2] == 'n' && array[3] == 'f' && array[4] == 'f')
-		return ("impossible");
-
-	strcat(array, ".0\0");
-	return (array);
-}
-
-ScalarConverter	&ScalarConverter::operator=( const ScalarConverter &Converter )
-{
-	if (this != &Converter)
-		this->_input = Converter._input;
-	return (*this);
-}
-
-std::ostream	&operator<<( std::ostream &out, const ScalarConverter &Converter )
-{
+std::ostream &operator<<(std::ostream &out, const ScalarConverter &Converter) {
 	out << "char: " << Converter.converterChar() << std::endl;
 	out << "int: " << Converter.converterInt() << std::endl;
 	out << "float: " << Converter.converterFloat() << std::endl;
