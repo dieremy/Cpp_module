@@ -3,7 +3,7 @@ NAME = serialize
 
 #FILES
 SRCS= main.cpp \
-	  Serialize.cpp
+	  Serializer.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 
