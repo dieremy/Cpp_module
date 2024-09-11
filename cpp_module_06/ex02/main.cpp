@@ -47,19 +47,29 @@ void identify(Base& x) {
 	}
 }
 
-int main() {
-	srand(time(NULL));
+// int main() {
+// 	srand(time(NULL));
 
+// 	Base* x = generate();
+// 	std::cout << " -> pointer" << std::endl;
+
+// 	Base* y = generate();
+// 	Base& z = *y;
+// 	std::cout << " -> reference" << std::endl;
+
+// 	identify(x);
+// 	identify(z);
+
+// 	delete x;
+// 	delete y;
+// }
+
+int	main(void) {
 	Base* x = generate();
-	std::cout << " -> pointer" << std::endl;
-
-	Base* y = generate();
-	Base& z = *y;
-	std::cout << " -> reference" << std::endl;
 
 	identify(x);
-	identify(z);
+
+	identify(*x);
 
 	delete x;
-	delete y;
 }
