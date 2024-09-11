@@ -11,11 +11,27 @@
 
 class Base {
 public:
-	virtual ~Base() {}
+	Base() {};
+    virtual ~Base() {};
 };
 
-class A : public Base {};
-class B : public Base {};
-class C : public Base {};
+class A : public Base {
+public:
+    A() {};
+    ~A() {};
+};
+
+class B : public Base {
+public:
+    B() {};
+    ~B() {};
+};
+
+class C : public Base
+{
+public:
+	C() {};
+	~C() {};
+};
 
 #endif //CPP_MODULE_REALTYPE_HPP
