@@ -103,7 +103,6 @@ std::string ScalarConverter::converterInt(void) const {
 		return "impossible";
 	}
 
-//	printf("diocane\n");
 	return temp;
 }
 
